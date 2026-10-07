@@ -1,2 +1,12 @@
-# santero-website
-Official website of SANTERO IT company
+# SANTERO Website
+
+Официальный сайт IT-компании **SANTERO**.
+
+Разработка сайтов, лендингов и мобильных приложений.
+
+## Стек
+- Чистый HTML + Tailwind CSS (CDN)
+- Современный адаптивный дизайн
+
+## Деплой
+Сайт автоматически деплоится на Vercel.
