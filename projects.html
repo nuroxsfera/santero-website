@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PALETTE: gradient #058BED→#042E75 | accent #12A9ED #CCFE03 | bg #FDFCFD #FFFFFF | text #000000 -->
   <title>Наши проекты — SANTERO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{primary:{50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#058BED',dark:'#042E75',light:'#12A9ED',lime:'#CCFE03',bg:'#FDFCFD',white:'#FFFFFF',black:'#000000'},primary:{50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
   <style>
     body{font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;margin:0;-webkit-font-smoothing:antialiased}
-    .gradient-bg{background:linear-gradient(160deg,#7c3aed 0%,#a855f7 45%,#6366f1 100%)}
-    .sheet{border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:10;background:#fff;min-height:60vh}
+    .gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
+    .sheet{border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:10;background:#FFFFFF;min-height:60vh}
     .glass{background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5)}
     .screen-mock{border-radius:24px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
     .float-anim{animation:float 6s ease-in-out infinite}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(124,58,237,.2);backdrop-filter:blur(14px)}
+    .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(5,139,237,.18);backdrop-filter:blur(14px)}
     .menu-overlay.open{opacity:1;visibility:visible}
     .menu-panel{transform:translateY(24px) scale(.95);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1)}
     .menu-overlay.open .menu-panel{transform:translateY(0) scale(1);opacity:1}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
+<body class="bg-[#FDFCFD] text-black antialiased overflow-x-hidden">
 <div class="gradient-bg relative">
   <header class="relative z-20 px-5 sm:px-8 pt-5 pb-3 flex items-center justify-between">
     <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">SANTERO</a>
@@ -44,17 +45,17 @@
     <div class="flex justify-center mb-10">
       <div class="relative float-anim w-full max-w-[260px]">
         <div class="screen-mock glass shadow-2xl">
-          <div class="bg-gradient-to-b from-primary-50 to-white p-5 min-h-[360px]">
+          <div class="bg-gradient-to-b from-[#e8f4fd] to-white p-5 min-h-[360px]">
             <div class="flex items-center justify-between mb-5">
               <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-sm">С</div>
               <div class="text-sm font-semibold">Santero Город</div>
               <div class="w-8 h-8 rounded-full bg-gray-100"></div>
             </div>
             <div class="space-y-3">
-              <div class="h-24 rounded-2xl bg-gradient-to-r from-primary-500 to-indigo-500 flex items-end p-4"><div class="text-white text-sm font-medium">Мероприятия рядом</div></div>
+              <div class="h-24 rounded-2xl bg-gradient-to-r from-[#058BED] to-[#12A9ED] flex items-end p-4"><div class="text-white text-sm font-medium">Мероприятия рядом</div></div>
               <div class="grid grid-cols-2 gap-3">
                 <div class="h-20 rounded-xl bg-white border border-gray-100 p-3"><div class="w-8 h-8 rounded-lg bg-primary-100 mb-2"></div><div class="text-xs font-medium">Транспорт</div></div>
-                <div class="h-20 rounded-xl bg-white border border-gray-100 p-3"><div class="w-8 h-8 rounded-lg bg-indigo-100 mb-2"></div><div class="text-xs font-medium">Недвижимость</div></div>
+                <div class="h-20 rounded-xl bg-white border border-gray-100 p-3"><div class="w-8 h-8 rounded-lg bg-[#d1eafb] mb-2"></div><div class="text-xs font-medium">Недвижимость</div></div>
               </div>
               <div class="h-14 rounded-xl bg-white border border-gray-100 p-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gray-100"></div><div><div class="text-xs font-medium">Вакансии</div><div class="text-[10px] text-gray-400">12 новых</div></div></div>
             </div>
@@ -70,9 +71,9 @@
       <span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Flutter</span>
     </div>
     <div class="space-y-4 mb-10">
-      <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Что внутри</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Мероприятия и афиша</li><li>• Транспорт и расписания</li><li>• Недвижимость</li><li>• Вакансии</li></ul></div>
-      <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Технологии</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Flutter</li><li>• Backend и API</li><li>• Карты</li><li>• Push</li></ul></div>
-      <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Цели</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Приложение для города</li><li>• Уровень Яндекса</li><li>• Города РФ</li></ul></div>
+      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Что внутри</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Мероприятия и афиша</li><li>• Транспорт и расписания</li><li>• Недвижимость</li><li>• Вакансии</li></ul></div>
+      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Технологии</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Flutter</li><li>• Backend и API</li><li>• Карты</li><li>• Push</li></ul></div>
+      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Цели</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Приложение для города</li><li>• Уровень Яндекса</li><li>• Города РФ</li></ul></div>
     </div>
     <a href="index.html#contact" class="block w-full text-center py-3.5 rounded-full gradient-bg text-white font-semibold text-sm">Обсудить похожий продукт</a>
     <p class="text-center text-xs text-gray-400 mt-10">© 2021–2026 SANTERO</p>
