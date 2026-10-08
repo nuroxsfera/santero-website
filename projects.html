@@ -24,13 +24,13 @@
     body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;-webkit-font-smoothing:antialiased;background:#FDFCFD}
     .gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
     .hero-fixed{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:1;overflow:hidden}
-    .sheet-scroll{position:relative;z-index:10;margin-top:88vh;background:#FFFFFF;border-radius:32px 32px 0 0;box-shadow:0 -8px 40px rgba(4,46,117,.12);min-height:100vh}
+    .sheet-scroll{position:relative;z-index:10;margin-top:72vh;background:#FFFFFF;border-radius:32px 32px 0 0;box-shadow:0 -8px 40px rgba(4,46,117,.12);min-height:100vh}
     .glass-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .25s ease;flex-shrink:0}
     .glass-btn:hover{background:rgba(255,255,255,.35)}
     .glass-btn:active{transform:scale(.94)}
-    .phone-stage{width:100%;max-width:320px;margin:0 auto;border-radius:28px;background:linear-gradient(165deg,#c8e4fb 0%,#a8c8f0 40%,#8bb4e8 100%);padding:28px 24px 20px;position:relative}
-    .phone-device{width:100%;border-radius:36px;background:rgba(255,255,255,.55);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1.5px solid rgba(255,255,255,.7);box-shadow:0 25px 50px -12px rgba(4,46,117,.3),0 0 0 1px rgba(255,255,255,.4) inset,0 1px 2px rgba(255,255,255,.8) inset;padding:5px;overflow:hidden}
-    .phone-screen{border-radius:31px;overflow:hidden;background:#fff;position:relative}
+    .phone-stage{width:100%;max-width:280px;margin:0 auto;position:relative;background:transparent;padding:0}
+    .phone-device{width:100%;border-radius:40px;background:rgba(255,255,255,.55);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1.5px solid rgba(255,255,255,.7);box-shadow:0 25px 50px -12px rgba(4,46,117,.3),0 0 0 1px rgba(255,255,255,.4) inset,0 1px 2px rgba(255,255,255,.8) inset;padding:5px;overflow:hidden}
+    .phone-screen{border-radius:35px;overflow:hidden;background:#fff;position:relative;min-height:420px}
     .phone-island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:72px;height:22px;border-radius:12px;background:#0a0a0a;z-index:5}
     .phone-status{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 6px;font-size:11px;font-weight:600;color:#111}
     .slide-text{transition:opacity .3s ease,transform .3s ease}
@@ -93,7 +93,7 @@
                 <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5"/><rect x="4" y="2" width="3" height="8" rx="0.5"/><rect x="8" y="0.5" width="3" height="11" rx="0.5"/><rect x="12" y="0" width="3" height="12" rx="0.5" opacity="0.3"/></svg>
               </div>
             </div>
-            <div class="px-3.5 pb-4 pt-1">
+            <div class="px-3.5 pb-8 pt-1">
               <div class="flex items-center justify-between mb-3">
                 <div class="w-8 h-8 rounded-full bg-[#058BED]/12 flex items-center justify-center text-[#058BED] font-bold text-xs">С</div>
                 <div class="text-[13px] font-semibold text-gray-900">Santero Город</div>
@@ -119,11 +119,18 @@
                   <div class="text-[11px] font-medium text-gray-800">Недвижимость</div>
                 </div>
               </div>
-              <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2.5">
+              <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2.5 mb-2">
                 <div class="w-8 h-8 rounded-full bg-[#e8f4fd] flex items-center justify-center text-[10px] font-bold text-[#058BED]">24</div>
                 <div>
                   <div class="text-[11px] font-medium text-gray-800">Вакансии</div>
                   <div class="text-[9px] text-gray-400">новых сегодня</div>
+                </div>
+              </div>
+              <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-[#CCFE03]/30 flex items-center justify-center text-[10px]">📍</div>
+                <div>
+                  <div class="text-[11px] font-medium text-gray-800">Рядом с вами</div>
+                  <div class="text-[9px] text-gray-400">8 мест</div>
                 </div>
               </div>
             </div>
