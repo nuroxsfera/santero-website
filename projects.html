@@ -6,101 +6,378 @@
   <!-- PALETTE: gradient #058BED→#042E75 | accent #12A9ED #CCFE03 | bg #FDFCFD #FFFFFF | text #000000 -->
   <title>Наши проекты — SANTERO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#058BED',dark:'#042E75',light:'#12A9ED',lime:'#CCFE03',bg:'#FDFCFD',white:'#FFFFFF',black:'#000000'},primary:{50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT:'#058BED', dark:'#042E75', light:'#12A9ED', lime:'#CCFE03', bg:'#FDFCFD' },
+            primary: {50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}
+          },
+          fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif'] }
+        }
+      }
+    }
+  </script>
   <style>
-    body{font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;margin:0;-webkit-font-smoothing:antialiased}
+    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;-webkit-font-smoothing:antialiased}
     .gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
-    .sheet{border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:10;background:#FFFFFF;min-height:60vh}
-    .glass{background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5)}
-    .screen-mock{border-radius:24px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
-    .float-anim{animation:float 6s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .sheet{border-radius:32px 32px 0 0;margin-top:-36px;position:relative;z-index:10;background:#FFFFFF;min-height:70vh}
+    .glass-btn{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .25s ease;flex-shrink:0}
+    .glass-btn:hover{background:rgba(255,255,255,.32);transform:scale(1.06)}
+    .glass-btn:active{transform:scale(.96)}
+    .phone-frame{border-radius:28px;padding:6px;background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.15));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.45);box-shadow:0 32px 64px -16px rgba(4,46,117,.35),0 0 0 1px rgba(255,255,255,.1) inset}
+    .phone-screen{border-radius:22px;overflow:hidden;background:#fff}
+    .float-y{animation:floatY 5.5s ease-in-out infinite}
+    .float-y-delay{animation:floatY 5.5s ease-in-out infinite .8s}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .case-panel{display:none;opacity:0}
+    .case-panel.active{display:block;animation:fadeIn .45s ease forwards}
     .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(5,139,237,.18);backdrop-filter:blur(14px)}
     .menu-overlay.open{opacity:1;visibility:visible}
     .menu-panel{transform:translateY(24px) scale(.95);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1)}
     .menu-overlay.open .menu-panel{transform:translateY(0) scale(1);opacity:1}
+    .btn-ios{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;background:#000;color:#fff;font-weight:600;font-size:14px;transition:all .25s ease;border:none;cursor:pointer;text-decoration:none}
+    .btn-ios:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+    .btn-android{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;background:#12A9ED;color:#fff;font-weight:600;font-size:14px;transition:all .25s ease;border:none;cursor:pointer;text-decoration:none}
+    .btn-android:hover{background:#058BED;transform:translateY(-2px);box-shadow:0 12px 28px rgba(18,169,237,.35)}
+    .feature-card{transition:all .3s ease}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -12px rgba(5,139,237,.18)}
+    .dot-lime{width:8px;height:8px;border-radius:50%;background:#CCFE03}
+    .progress-bar{height:3px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden}
+    .progress-fill{height:100%;background:#CCFE03;border-radius:2px;transition:width .4s ease}
   </style>
 </head>
 <body class="bg-[#FDFCFD] text-black antialiased overflow-x-hidden">
-<div class="gradient-bg relative">
-  <header class="relative z-20 px-5 sm:px-8 pt-5 pb-3 flex items-center justify-between">
-    <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">SANTERO</a>
-    <button id="menuBtn" class="p-1 flex items-center justify-center text-white hover:opacity-80 transition" aria-label="Меню">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
-        <rect x="1" y="1" width="8.5" height="8.5" rx="2.2"/>
-        <rect x="12.5" y="1" width="8.5" height="8.5" rx="2.2"/>
-        <rect x="1" y="12.5" width="8.5" height="8.5" rx="2.2"/>
-        <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.2"/>
-      </svg>
-    </button>
-  </header>
-  <div class="relative z-10 px-5 sm:px-8 pt-8 pb-16 max-w-3xl mx-auto text-center">
-    <div class="text-white/60 text-xs mb-3"><a href="index.html" class="hover:text-white">Главная</a> · Наши проекты</div>
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">Наши проекты</h1>
-    <p class="text-white/80 text-base max-w-md mx-auto">Собственные продукты. Главный — Santero Город.</p>
+
+  <div class="gradient-bg relative min-h-[42vh] sm:min-h-[48vh] flex flex-col">
+    <header class="relative z-20 px-5 sm:px-8 pt-5 pb-3 flex items-center justify-between">
+      <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">SANTERO</a>
+      <button id="menuBtn" class="p-1 flex items-center justify-center text-white hover:opacity-80 transition" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
+          <rect x="1" y="1" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="12.5" y="1" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="1" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="relative z-10 flex-1 flex flex-col justify-center px-5 sm:px-8 pb-14 pt-4">
+      <div class="text-center text-white/50 text-xs mb-6 tracking-wide">
+        <a href="index.html" class="hover:text-white transition">Главная</a>
+        <span class="mx-1.5">·</span>
+        Наши проекты
+      </div>
+
+      <div class="flex items-center justify-between gap-4 max-w-xl mx-auto w-full">
+        <button class="glass-btn" id="prevBtn" aria-label="Предыдущий проект">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <div class="flex-1 text-center min-w-0 px-2">
+          <div class="flex items-center justify-center gap-2 mb-2">
+            <span class="dot-lime"></span>
+            <span id="heroLabel" class="text-white/70 text-xs font-medium tracking-wide">1 / 2</span>
+          </div>
+          <h1 id="heroTitle" class="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight">Santero Город</h1>
+          <p id="heroSub" class="text-white/75 text-sm sm:text-base mt-2.5 leading-relaxed">Всё для жизни в городах России</p>
+          <div class="progress-bar mt-5 max-w-[120px] mx-auto">
+            <div class="progress-fill" id="progressFill" style="width:50%"></div>
+          </div>
+        </div>
+
+        <button class="glass-btn" id="nextBtn" aria-label="Следующий проект">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-<div class="sheet px-5 sm:px-8 pt-10 pb-16">
-  <div class="max-w-3xl mx-auto">
-    <div class="flex justify-center mb-10">
-      <div class="relative float-anim w-full max-w-[260px]">
-        <div class="screen-mock glass shadow-2xl">
-          <div class="bg-gradient-to-b from-[#e8f4fd] to-white p-5 min-h-[360px]">
-            <div class="flex items-center justify-between mb-5">
-              <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-sm">С</div>
-              <div class="text-sm font-semibold">Santero Город</div>
-              <div class="w-8 h-8 rounded-full bg-gray-100"></div>
-            </div>
-            <div class="space-y-3">
-              <div class="h-24 rounded-2xl bg-gradient-to-r from-[#058BED] to-[#12A9ED] flex items-end p-4"><div class="text-white text-sm font-medium">Мероприятия рядом</div></div>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="h-20 rounded-xl bg-white border border-gray-100 p-3"><div class="w-8 h-8 rounded-lg bg-primary-100 mb-2"></div><div class="text-xs font-medium">Транспорт</div></div>
-                <div class="h-20 rounded-xl bg-white border border-gray-100 p-3"><div class="w-8 h-8 rounded-lg bg-[#d1eafb] mb-2"></div><div class="text-xs font-medium">Недвижимость</div></div>
+
+  <div class="sheet px-5 sm:px-8 pt-10 pb-20">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- CASE 0: Santero Город -->
+      <div class="case-panel active" data-case="0">
+        <div class="flex justify-center items-end gap-3 sm:gap-5 mb-12 px-2">
+          <div class="phone-frame float-y w-[42%] max-w-[160px] sm:max-w-[180px]">
+            <div class="phone-screen">
+              <div class="bg-gradient-to-b from-[#e8f4fd] to-white p-3.5 min-h-[280px] sm:min-h-[320px]">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-7 h-7 rounded-full bg-[#058BED]/15 flex items-center justify-center text-[#058BED] font-bold text-xs">С</div>
+                  <div class="text-[11px] font-semibold text-gray-800">Santero</div>
+                  <div class="w-7 h-7 rounded-full bg-gray-100"></div>
+                </div>
+                <div class="rounded-2xl bg-gradient-to-br from-[#058BED] to-[#042E75] p-3.5 mb-3 min-h-[70px] flex flex-col justify-end">
+                  <div class="text-white/70 text-[9px] mb-0.5">Сегодня</div>
+                  <div class="text-white text-xs font-semibold">12 мероприятий рядом</div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                  <div class="rounded-xl bg-white border border-gray-100 p-2.5 shadow-sm">
+                    <div class="w-6 h-6 rounded-lg bg-[#12A9ED]/15 mb-1.5 flex items-center justify-center">
+                      <svg class="w-3.5 h-3.5 text-[#12A9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                    </div>
+                    <div class="text-[10px] font-medium text-gray-800">Транспорт</div>
+                  </div>
+                  <div class="rounded-xl bg-white border border-gray-100 p-2.5 shadow-sm">
+                    <div class="w-6 h-6 rounded-lg bg-[#CCFE03]/40 mb-1.5 flex items-center justify-center">
+                      <svg class="w-3.5 h-3.5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                    </div>
+                    <div class="text-[10px] font-medium text-gray-800">Недвижимость</div>
+                  </div>
+                </div>
+                <div class="rounded-xl bg-white border border-gray-100 p-2.5 flex items-center gap-2 shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-[#e8f4fd] flex items-center justify-center text-[10px] font-bold text-[#058BED]">+</div>
+                  <div>
+                    <div class="text-[10px] font-medium text-gray-800">Вакансии</div>
+                    <div class="text-[9px] text-gray-400">24 новых</div>
+                  </div>
+                </div>
               </div>
-              <div class="h-14 rounded-xl bg-white border border-gray-100 p-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gray-100"></div><div><div class="text-xs font-medium">Вакансии</div><div class="text-[10px] text-gray-400">12 новых</div></div></div>
+            </div>
+          </div>
+
+          <div class="phone-frame float-y-delay w-[48%] max-w-[180px] sm:max-w-[200px] -mb-2">
+            <div class="phone-screen">
+              <div class="bg-white p-3.5 min-h-[300px] sm:min-h-[340px]">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                  </div>
+                  <div class="text-xs font-semibold text-gray-800">Афиша</div>
+                </div>
+                <div class="space-y-2.5">
+                  <div class="rounded-2xl overflow-hidden border border-gray-100">
+                    <div class="h-16 bg-gradient-to-r from-[#058BED] to-[#12A9ED]"></div>
+                    <div class="p-2.5">
+                      <div class="text-[10px] font-semibold text-gray-800">Концерт в парке</div>
+                      <div class="text-[9px] text-gray-400 mt-0.5">Сб · 19:00 · Парк Горького</div>
+                    </div>
+                  </div>
+                  <div class="rounded-2xl overflow-hidden border border-gray-100">
+                    <div class="h-12 bg-gradient-to-r from-[#042E75] to-[#058BED]"></div>
+                    <div class="p-2.5">
+                      <div class="text-[10px] font-semibold text-gray-800">Выставка современного искусства</div>
+                      <div class="text-[9px] text-gray-400 mt-0.5">Вс · 12:00 · Галерея</div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-[#CCFE03]/30 flex items-center justify-center text-[10px]">🎭</div>
+                    <div>
+                      <div class="text-[10px] font-medium text-gray-800">Театр</div>
+                      <div class="text-[9px] text-gray-400">3 события</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-medium mb-4">
+            <span class="dot-lime" style="width:6px;height:6px"></span>
+            Собственный продукт
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Santero Город</h2>
+          <p class="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+            Мобильное приложение, в котором собрано всё для жизни в городе: мероприятия, транспорт, недвижимость, вакансии и городские сервисы. Один экран — вместо десятка приложений.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <a href="#" class="btn-ios" onclick="event.preventDefault()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Скачать iOS
+          </a>
+          <a href="#" class="btn-android" onclick="event.preventDefault()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.34l-.002.002-2.04-1.18.001-.002 2.041 1.18zm-11.046 0l2.041-1.18.001.002-2.04 1.18-.002-.002zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.94 6.06l.71.71-1.41 1.41-.71-.71 1.41-1.41zM12 7c.55 0 1 .45 1 1h2c0-1.66-1.34-3-3-3S9 7.34 9 9h2c0-.55.45-1 1-1zm-5.65 1.06l1.41 1.41-.71.71-1.41-1.41.71-.71zM7 13c0 2.76 2.24 5 5 5s5-2.24 5-5v-1H7v1z"/></svg>
+            Скачать Android
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 mb-10">
+          <div class="feature-card bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#058BED]/10 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-[#058BED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-bold text-sm mb-1">Мероприятия</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Афиша города: концерты, выставки, спорт. Фильтры по дате и району.</p>
+          </div>
+          <div class="feature-card bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#12A9ED]/10 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-[#12A9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <h3 class="font-bold text-sm mb-1">Транспорт</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Маршруты, расписания, остановки. Актуальное время прибытия.</p>
+          </div>
+          <div class="feature-card bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#CCFE03]/25 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+            </div>
+            <h3 class="font-bold text-sm mb-1">Недвижимость</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Квартиры, дома, аренда. Карта и фильтры по цене и району.</p>
+          </div>
+          <div class="feature-card bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#058BED]/10 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-[#058BED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-bold text-sm mb-1">Вакансии</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Работа в городе. Подборки и уведомления о новых предложениях.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 mb-10">
+          <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <h3 class="font-bold text-sm mb-3">Технологии</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-[#058BED]/10 text-[#058BED] text-xs font-medium">Flutter</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#12A9ED]/10 text-[#12A9ED] text-xs font-medium">iOS</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#12A9ED]/10 text-[#12A9ED] text-xs font-medium">Android</span>
+              <span class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-medium">Backend</span>
+              <span class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-medium">Maps API</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#CCFE03]/30 text-gray-800 text-xs font-medium">Push</span>
+            </div>
+          </div>
+          <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100">
+            <h3 class="font-bold text-sm mb-3">Цель</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Стать приложением №1 для повседневной жизни в городах РФ. Уровень федеральных сервисов — с локальной глубиной.</p>
+          </div>
+        </div>
+
+        <div class="gradient-bg rounded-3xl p-6 sm:p-8 text-center text-white">
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Хотите похожий продукт?</h3>
+          <p class="text-white/75 text-sm mb-5">Разработаем приложение под ваши задачи — от идеи до релиза.</p>
+          <a href="index.html#contact" class="inline-flex px-7 py-3 rounded-full bg-white text-[#042E75] font-semibold text-sm hover:bg-[#FDFCFD] transition">Обсудить проект</a>
+        </div>
+      </div>
+
+      <!-- CASE 1: Placeholder -->
+      <div class="case-panel" data-case="1">
+        <div class="flex justify-center items-end gap-3 sm:gap-5 mb-12 px-2">
+          <div class="phone-frame float-y w-[42%] max-w-[160px] sm:max-w-[180px]">
+            <div class="phone-screen">
+              <div class="bg-gradient-to-b from-[#e8f4fd] to-white p-3.5 min-h-[280px] sm:min-h-[320px] flex flex-col items-center justify-center">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center text-white text-xl font-bold mb-3">S</div>
+                <div class="text-xs font-semibold text-gray-800">Santero Labs</div>
+                <div class="text-[10px] text-gray-400 mt-1">В разработке</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-frame float-y-delay w-[48%] max-w-[180px] sm:max-w-[200px] -mb-2">
+            <div class="phone-screen">
+              <div class="bg-white p-3.5 min-h-[300px] sm:min-h-[340px]">
+                <div class="text-xs font-semibold text-gray-800 mb-3">Скоро</div>
+                <div class="space-y-2">
+                  <div class="h-10 rounded-xl bg-[#FDFCFD] border border-gray-100"></div>
+                  <div class="h-10 rounded-xl bg-[#FDFCFD] border border-gray-100"></div>
+                  <div class="h-10 rounded-xl bg-[#FDFCFD] border border-gray-100"></div>
+                  <div class="h-24 rounded-2xl bg-gradient-to-br from-[#058BED]/10 to-[#12A9ED]/10 border border-gray-100 flex items-center justify-center">
+                    <span class="text-[10px] text-gray-400">Новый продукт</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-medium mb-4">
+            <span class="dot-lime" style="width:6px;height:6px"></span>
+            В разработке
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Santero Labs</h2>
+          <p class="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+            Следующий продукт команды. Детали появятся позже — следите за обновлениями.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <span class="px-5 py-3 rounded-full bg-gray-100 text-gray-400 text-sm font-medium">Скоро на iOS</span>
+          <span class="px-5 py-3 rounded-full bg-gray-100 text-gray-400 text-sm font-medium">Скоро на Android</span>
+        </div>
+
+        <div class="bg-[#FDFCFD] rounded-2xl p-6 border border-gray-100 text-center mb-10">
+          <p class="text-sm text-gray-500 leading-relaxed">Макетный кейс для демонстрации переключения. Здесь будет полноценный разбор следующего проекта SANTERO.</p>
+        </div>
+
+        <div class="gradient-bg rounded-3xl p-6 sm:p-8 text-center text-white">
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Есть идея продукта?</h3>
+          <p class="text-white/75 text-sm mb-5">Расскажите — обсудим, как воплотить.</p>
+          <a href="index.html#contact" class="inline-flex px-7 py-3 rounded-full bg-white text-[#042E75] font-semibold text-sm hover:bg-[#FDFCFD] transition">Написать нам</a>
+        </div>
+      </div>
+
+      <p class="text-center text-xs text-gray-400 mt-12">© 2021–2026 SANTERO</p>
+    </div>
+  </div>
+
+  <div id="menuOverlay" class="menu-overlay fixed inset-0 z-[100] flex flex-col items-center pt-5 px-4">
+    <div class="w-full max-w-sm flex items-center justify-between mb-3 px-1">
+      <div class="flex items-center gap-2 bg-white/95 rounded-2xl px-3.5 py-2.5 shadow-sm">
+        <div class="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-xs">S</div>
+        <span class="font-bold text-sm">SANTERO</span>
+      </div>
+      <button id="menuClose" class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-gray-500 shadow-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="menu-panel w-full max-w-sm bg-white rounded-[1.75rem] shadow-2xl overflow-hidden py-2">
+      <nav class="pt-2 pb-1">
+        <a href="index.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Главная</a>
+        <a href="projects.html" class="block text-center px-6 py-4 text-[17px] font-medium text-primary-600">Наши проекты</a>
+        <a href="nost.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Проекты для холдинга НОСТ</a>
+        <a href="index.html#about" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">О нас</a>
+        <a href="index.html#contact" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Контакты</a>
+      </nav>
+      <div class="px-5 pb-5 pt-3">
+        <a href="index.html#contact" class="block w-full text-center px-6 py-3.5 rounded-full gradient-bg text-white font-semibold text-[15px]">Обсудить проект</a>
       </div>
     </div>
-    <h2 class="text-2xl font-bold mb-3">Santero Город</h2>
-    <p class="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">Мобильное приложение «всё для жизни в городах РФ»: мероприятия, транспорт и расписания, недвижимость, вакансии. Растём до уровня Яндекса.</p>
-    <div class="flex flex-wrap gap-2 mb-8">
-      <span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">iOS</span>
-      <span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Android</span>
-      <span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Flutter</span>
-    </div>
-    <div class="space-y-4 mb-10">
-      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Что внутри</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Мероприятия и афиша</li><li>• Транспорт и расписания</li><li>• Недвижимость</li><li>• Вакансии</li></ul></div>
-      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Технологии</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Flutter</li><li>• Backend и API</li><li>• Карты</li><li>• Push</li></ul></div>
-      <div class="bg-[#FDFCFD] rounded-2xl p-5 border border-gray-100"><h3 class="font-bold mb-2">Цели</h3><ul class="text-sm text-gray-600 space-y-1.5"><li>• Приложение для города</li><li>• Уровень Яндекса</li><li>• Города РФ</li></ul></div>
-    </div>
-    <a href="index.html#contact" class="block w-full text-center py-3.5 rounded-full gradient-bg text-white font-semibold text-sm">Обсудить похожий продукт</a>
-    <p class="text-center text-xs text-gray-400 mt-10">© 2021–2026 SANTERO</p>
   </div>
-</div>
-<div id="menuOverlay" class="menu-overlay fixed inset-0 z-[100] flex flex-col items-center pt-5 px-4">
-  <div class="w-full max-w-sm flex items-center justify-between mb-3 px-1">
-    <div class="flex items-center gap-2 bg-white/95 rounded-2xl px-3.5 py-2.5 shadow-sm"><div class="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-xs">S</div><span class="font-bold text-sm">SANTERO</span></div>
-    <button id="menuClose" class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-gray-500 shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
-  </div>
-  <div class="menu-panel w-full max-w-sm bg-white rounded-[1.75rem] shadow-2xl overflow-hidden py-2">
-    <nav class="pt-2 pb-1">
-      <a href="index.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Главная</a>
-      <a href="projects.html" class="block text-center px-6 py-4 text-[17px] font-medium text-primary-600">Наши проекты</a>
-      <a href="nost.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Проекты для холдинга НОСТ</a>
-      <a href="index.html#about" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">О нас</a>
-      <a href="index.html#contact" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Контакты</a>
-    </nav>
-    <div class="px-5 pb-5 pt-3"><a href="index.html#contact" class="block w-full text-center px-6 py-3.5 rounded-full gradient-bg text-white font-semibold text-[15px]">Обсудить проект</a></div>
-  </div>
-</div>
-<script>
-const menuBtn=document.getElementById('menuBtn'),menuClose=document.getElementById('menuClose'),menuOverlay=document.getElementById('menuOverlay');
-function openMenu(){menuOverlay.classList.add('open');document.body.style.overflow='hidden'}
-function closeMenu(){menuOverlay.classList.remove('open');document.body.style.overflow=''}
-menuBtn.addEventListener('click',openMenu);menuClose.addEventListener('click',closeMenu);
-menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)closeMenu()});
-</script>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+    function openMenu(){ menuOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMenu(){ menuOverlay.classList.remove('open'); document.body.style.overflow=''; }
+    menuBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', e => { if(e.target === menuOverlay) closeMenu(); });
+
+    const cases = [
+      { title: 'Santero Город', sub: 'Всё для жизни в городах России' },
+      { title: 'Santero Labs', sub: 'Новый продукт · скоро' }
+    ];
+    let idx = 0;
+    const panels = document.querySelectorAll('.case-panel');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroSub = document.getElementById('heroSub');
+    const heroLabel = document.getElementById('heroLabel');
+    const progressFill = document.getElementById('progressFill');
+
+    function show(i) {
+      idx = (i + cases.length) % cases.length;
+      panels.forEach(p => {
+        p.classList.remove('active');
+        if (Number(p.dataset.case) === idx) p.classList.add('active');
+      });
+      heroTitle.textContent = cases[idx].title;
+      heroSub.textContent = cases[idx].sub;
+      heroLabel.textContent = (idx + 1) + ' / ' + cases.length;
+      progressFill.style.width = ((idx + 1) / cases.length * 100) + '%';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => show(idx - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => show(idx + 1));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  </script>
 </body>
 </html>
