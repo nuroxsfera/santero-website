@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SANTERO — Разработка сайтов и мобильных приложений</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{primary:{50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>tailwind.config={theme:{extend:{colors:{primary:{50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
   <style>
-    body{font-family:'Inter',system-ui,sans-serif;margin:0}
+    body{font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;margin:0;-webkit-font-smoothing:antialiased}
     .gradient-bg{background:linear-gradient(160deg,#7c3aed 0%,#a855f7 45%,#6366f1 100%)}
     .gradient-text{background:linear-gradient(135deg,#7c3aed,#a855f7,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
@@ -24,9 +23,14 @@
 
 <div class="gradient-bg relative">
   <header class="relative z-20 px-5 sm:px-8 pt-5 pb-3 flex items-center justify-between">
-    <a href="index.html" class="text-white font-bold text-lg tracking-wide">SANTERO</a>
-    <button id="menuBtn" class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-white/25 transition" aria-label="Меню">
-      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+    <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">SANTERO</a>
+    <button id="menuBtn" class="p-1 flex items-center justify-center text-white hover:opacity-80 transition" aria-label="Меню">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
+        <rect x="1" y="1" width="8.5" height="8.5" rx="2.2"/>
+        <rect x="12.5" y="1" width="8.5" height="8.5" rx="2.2"/>
+        <rect x="1" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+        <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+      </svg>
     </button>
   </header>
   <div class="relative z-10 px-5 sm:px-8 pt-6 pb-16 sm:pb-20 max-w-3xl mx-auto text-center sm:text-left">
