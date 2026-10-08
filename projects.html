@@ -1,1 +1,457 @@
-SEE_FILE
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PALETTE: gradient #058BED→#042E75 | accent #12A9ED #CCFE03 | bg #FDFCFD #FFFFFF | text #000000 -->
+  <title>Наши проекты — SANTERO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT:'#058BED', dark:'#042E75', light:'#12A9ED', lime:'#CCFE03', bg:'#FDFCFD' },
+            primary: {50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}
+          },
+          fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    *{box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;-webkit-font-smoothing:antialiased;background:#FDFCFD}
+    .gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
+    .hero-fixed{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:1;overflow:hidden}
+    .sheet-scroll{position:relative;z-index:10;margin-top:72vh;background:#FFFFFF;border-radius:32px 32px 0 0;box-shadow:0 -8px 40px rgba(4,46,117,.12);min-height:100vh}
+    .glass-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .25s ease;flex-shrink:0}
+    .glass-btn:hover{background:rgba(255,255,255,.35)}
+    .glass-btn:active{transform:scale(.94)}
+    .phone-stage{width:100%;max-width:280px;margin:0 auto;position:relative;background:transparent;padding:0}
+    .phone-device{width:100%;border-radius:40px;background:rgba(255,255,255,.55);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1.5px solid rgba(255,255,255,.7);box-shadow:0 25px 50px -12px rgba(4,46,117,.3),0 0 0 1px rgba(255,255,255,.4) inset,0 1px 2px rgba(255,255,255,.8) inset;padding:5px;overflow:hidden}
+    .phone-screen{border-radius:35px;overflow:hidden;background:#fff;position:relative;min-height:420px}
+    .phone-island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:72px;height:22px;border-radius:12px;background:#0a0a0a;z-index:5}
+    .phone-status{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 6px;font-size:11px;font-weight:600;color:#111}
+    .slide-text{transition:opacity .3s ease,transform .3s ease}
+    .slide-text.hide{opacity:0;transform:translateY(6px);pointer-events:none;position:absolute;left:0;right:0}
+    .slide-text.show{opacity:1;transform:translateY(0);position:relative}
+    .btn-ios{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;background:#000;color:#fff;font-weight:600;font-size:14px;transition:all .25s ease;text-decoration:none}
+    .btn-ios:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+    .btn-android{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;background:#12A9ED;color:#fff;font-weight:600;font-size:14px;transition:all .25s ease;text-decoration:none}
+    .btn-android:hover{background:#058BED;transform:translateY(-2px);box-shadow:0 12px 28px rgba(18,169,237,.35)}
+    .feature-card{transition:all .3s ease}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -12px rgba(5,139,237,.18)}
+    .dot-lime{width:7px;height:7px;border-radius:50%;background:#CCFE03;display:inline-block}
+    .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(5,139,237,.18);backdrop-filter:blur(14px)}
+    .menu-overlay.open{opacity:1;visibility:visible}
+    .menu-panel{transform:translateY(24px) scale(.95);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1)}
+    .menu-overlay.open .menu-panel{transform:translateY(0) scale(1);opacity:1}
+    .float-soft{animation:floatSoft 6s ease-in-out infinite}
+    @keyframes floatSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.08s}
+    .reveal-delay-2{transition-delay:.16s}
+    .reveal-delay-3{transition-delay:.24s}
+    .reveal-delay-4{transition-delay:.32s}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#F5F8FC;border:1px solid #E8EEF5;font-size:13px;font-weight:500;color:#0a1628;transition:all .25s ease}
+    .chip:hover{border-color:#12A9ED;background:#e8f4fd}
+    .phone-on-light{width:100%;max-width:260px;margin:0 auto}
+    .phone-on-light .phone-device{
+      background:#fff;
+      border:1.5px solid rgba(4,46,117,.1);
+      box-shadow:0 25px 50px -12px rgba(4,46,117,.2),0 0 0 1px rgba(255,255,255,.9) inset;
+      backdrop-filter:none;-webkit-backdrop-filter:none;
+    }
+    .phone-on-light .phone-screen{min-height:460px}
+    .section-label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#12A9ED}
+    .big-headline{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#0a1628}
+    .soft-text{color:#5a6b7d;line-height:1.65;font-size:15px}
+    .line-status{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:#F5F8FC;border:1px solid #E8EEF5}
+    .line-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .stat-pill{display:inline-flex;flex-direction:column;align-items:flex-start;padding:16px 18px;border-radius:18px;background:#F5F8FC;border:1px solid #E8EEF5;min-width:120px}
+    .stat-pill .n{font-size:22px;font-weight:800;color:#0a1628;letter-spacing:-.02em}
+    .stat-pill .l{font-size:12px;color:#5a6b7d;margin-top:2px}
+    .orbit-wrap{position:relative;min-height:280px;display:flex;align-items:center;justify-content:center}
+    .orbit-center{width:110px;height:110px;border-radius:28px;background:linear-gradient(160deg,#058BED,#042E75);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;text-align:center;line-height:1.25;box-shadow:0 16px 40px rgba(5,139,237,.35);z-index:2}
+    .orbit-item{position:absolute;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid #E8EEF5;font-size:12px;font-weight:600;color:#0a1628;box-shadow:0 8px 24px rgba(4,46,117,.08);white-space:nowrap}
+    .event-card{flex:0 0 200px;border-radius:18px;overflow:hidden;background:#fff;border:1px solid #E8EEF5;box-shadow:0 8px 24px rgba(4,46,117,.06)}
+    .event-card .thumb{height:100px;background:linear-gradient(135deg,#058BED,#042E75)}
+    .h-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .h-scroll::-webkit-scrollbar{display:none}
+    .chat-bubble{max-width:85%;padding:12px 16px;border-radius:18px;font-size:13px;line-height:1.5}
+    .chat-user{margin-left:auto;background:#058BED;color:#fff;border-bottom-right-radius:6px}
+    .chat-bot{margin-right:auto;background:#F5F8FC;color:#0a1628;border:1px solid #E8EEF5;border-bottom-left-radius:6px}
+    .final-cta{background:linear-gradient(160deg,#058BED 0%,#042E75 100%);border-radius:28px;padding:40px 28px;color:#fff;text-align:center;position:relative;overflow:hidden}
+    .footer-min{border-top:1px solid #E8EEF5;padding:40px 0 28px;margin-top:8px}
+  </style>
+</head>
+<body class="text-black antialiased overflow-x-hidden">
+
+  <div class="hero-fixed gradient-bg flex flex-col">
+    <header class="relative z-20 px-5 sm:px-8 pt-5 pb-2 flex items-center justify-between flex-shrink-0">
+      <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700">SANTERO</a>
+      <button id="menuBtn" class="p-1 flex items-center justify-center text-white hover:opacity-80 transition" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor">
+          <rect x="1" y="1" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="12.5" y="1" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="1" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+          <rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.2"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="flex-1 flex flex-col items-center justify-center px-5 pb-8 pt-2 min-h-0">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Santero Город</h1>
+
+      <div class="flex items-center gap-3 max-w-md w-full mb-6">
+        <button class="glass-btn" id="prevSlide" aria-label="Назад">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="flex-1 text-center relative min-h-[48px] flex items-center justify-center">
+          <p class="slide-text show text-white/85 text-sm sm:text-base leading-snug px-1" data-i="0">Всё для жизни в городах России</p>
+          <p class="slide-text hide text-white/85 text-sm sm:text-base leading-snug px-1" data-i="1">Мероприятия, транспорт, недвижимость</p>
+          <p class="slide-text hide text-white/85 text-sm sm:text-base leading-snug px-1" data-i="2">Вакансии и городские сервисы рядом</p>
+        </div>
+        <button class="glass-btn" id="nextSlide" aria-label="Вперёд">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="phone-stage float-soft">
+        <div class="phone-device">
+          <div class="phone-screen">
+            <div class="phone-island"></div>
+            <div class="phone-status">
+              <span>9:41</span>
+              <div class="flex items-center gap-1 opacity-60">
+                <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5"/><rect x="4" y="2" width="3" height="8" rx="0.5"/><rect x="8" y="0.5" width="3" height="11" rx="0.5"/><rect x="12" y="0" width="3" height="12" rx="0.5" opacity="0.3"/></svg>
+              </div>
+            </div>
+            <div class="px-3.5 pb-8 pt-1">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-8 h-8 rounded-full bg-[#058BED]/12 flex items-center justify-center text-[#058BED] font-bold text-xs">С</div>
+                <div class="text-[13px] font-semibold text-gray-900">Santero Город</div>
+                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </div>
+              </div>
+              <div class="rounded-2xl bg-gradient-to-br from-[#058BED] to-[#042E75] p-3.5 mb-2.5">
+                <div class="text-white/60 text-[10px] mb-0.5">Сегодня рядом</div>
+                <div class="text-white text-[13px] font-semibold">12 мероприятий</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 mb-2">
+                <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-[#12A9ED]/15 flex items-center justify-center mb-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#12A9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                  </div>
+                  <div class="text-[11px] font-medium text-gray-800">Транспорт</div>
+                </div>
+                <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-[#CCFE03]/35 flex items-center justify-center mb-1.5">
+                    <svg class="w-3.5 h-3.5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                  </div>
+                  <div class="text-[11px] font-medium text-gray-800">Недвижимость</div>
+                </div>
+              </div>
+              <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2.5 mb-2">
+                <div class="w-8 h-8 rounded-full bg-[#e8f4fd] flex items-center justify-center text-[10px] font-bold text-[#058BED]">24</div>
+                <div>
+                  <div class="text-[11px] font-medium text-gray-800">Вакансии</div>
+                  <div class="text-[9px] text-gray-400">новых сегодня</div>
+                </div>
+              </div>
+              <div class="rounded-xl bg-[#FDFCFD] border border-gray-100 p-2.5 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-[#CCFE03]/30 flex items-center justify-center text-[10px]">📍</div>
+                <div>
+                  <div class="text-[11px] font-medium text-gray-800">Рядом с вами</div>
+                  <div class="text-[9px] text-gray-400">8 мест</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-scroll">
+    <div class="max-w-2xl mx-auto px-5 sm:px-8 pt-10 pb-6">
+      <div class="w-10 h-1 rounded-full bg-gray-200 mx-auto mb-10"></div>
+
+      <section class="reveal text-center pb-16 sm:pb-20">
+        <p class="section-label mb-5">Santero Город</p>
+        <h2 class="big-headline mb-5">Город — это больше,<br/>чем карта.</h2>
+        <p class="soft-text max-w-md mx-auto">
+          Santero собирает то, чем вы пользуетесь каждый день — транспорт, работу, места, события, недвижимость — в одном цифровом пространстве.
+        </p>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label text-center mb-3">Масштаб</p>
+        <h2 class="big-headline text-center mb-3">Один город.<br/>Одно пространство.</h2>
+        <p class="soft-text text-center max-w-sm mx-auto mb-10">Не каталог сервисов — единая система городской жизни.</p>
+        <div class="orbit-wrap reveal reveal-delay-1">
+          <div class="orbit-center">SANTERO<br/>ГОРОД</div>
+          <div class="orbit-item" style="top:8%;left:50%;transform:translateX(-50%)">Транспорт</div>
+          <div class="orbit-item" style="top:28%;right:0">Работа</div>
+          <div class="orbit-item" style="top:28%;left:0">События</div>
+          <div class="orbit-item" style="bottom:28%;right:4%">Места</div>
+          <div class="orbit-item" style="bottom:28%;left:4%">Карта</div>
+          <div class="orbit-item" style="bottom:6%;left:50%;transform:translateX(-50%)">Помощник</div>
+          <div class="orbit-item" style="top:52%;right:-4%">Недвижимость</div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Транспорт</p>
+        <h2 class="big-headline mb-4">Город движется.<br/>Вы знаете куда.</h2>
+        <p class="soft-text mb-8 max-w-md">Маршруты, расписания и состояние линий — без переключения между приложениями.</p>
+        <div class="phone-on-light reveal reveal-delay-1 mb-6">
+          <div class="phone-device">
+            <div class="phone-screen">
+              <div class="phone-island"></div>
+              <div class="phone-status">
+                <span>9:41</span>
+                <div class="flex items-center gap-1 opacity-60">
+                  <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5"/><rect x="4" y="2" width="3" height="8" rx="0.5"/><rect x="8" y="0.5" width="3" height="11" rx="0.5"/><rect x="12" y="0" width="3" height="12" rx="0.5" opacity="0.3"/></svg>
+                </div>
+              </div>
+              <div class="px-3.5 pb-8 pt-1">
+                <div style="font-size:18px;font-weight:800;margin-bottom:12px;letter-spacing:-.02em">Транспорт</div>
+                <div style="border-radius:16px;background:linear-gradient(135deg,#058BED,#042E75);padding:14px;color:#fff;margin-bottom:12px">
+                  <div style="font-size:11px;opacity:.7;margin-bottom:4px">Ближайшая остановка</div>
+                  <div style="font-size:15px;font-weight:700">пл. Революции · 120 м</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <div class="line-status"><span class="line-dot" style="background:#058BED"></span><div style="flex:1"><div style="font-size:13px;font-weight:600">Синяя линия</div><div style="font-size:11px;color:#5a6b7d">к центру</div></div><div style="font-size:13px;font-weight:700;color:#058BED">2 мин</div></div>
+                  <div class="line-status"><span class="line-dot" style="background:#e11d48"></span><div style="flex:1"><div style="font-size:13px;font-weight:600">Красная линия</div><div style="font-size:11px;color:#5a6b7d">на север</div></div><div style="font-size:13px;font-weight:700;color:#e11d48">5 мин</div></div>
+                  <div class="line-status"><span class="line-dot" style="background:#16a34a"></span><div style="flex:1"><div style="font-size:13px;font-weight:600">Трамвай 7</div><div style="font-size:11px;color:#5a6b7d">работает</div></div><div style="font-size:13px;font-weight:700;color:#16a34a">8 мин</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 reveal reveal-delay-2">
+          <span class="chip">Расписания</span>
+          <span class="chip">Состояние линий</span>
+          <span class="chip">Карта маршрутов</span>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Места и события</p>
+        <h2 class="big-headline mb-4">Знаете, что<br/>происходит рядом.</h2>
+        <p class="soft-text mb-6 max-w-md">Афиша, рекомендации и точки интереса — город рассказывает о себе сам.</p>
+        <div class="flex gap-3 mb-6 reveal reveal-delay-1">
+          <div class="stat-pill"><span class="n">12</span><span class="l">событий сегодня</span></div>
+          <div class="stat-pill"><span class="n">8</span><span class="l">мест рядом</span></div>
+        </div>
+        <div class="h-scroll reveal reveal-delay-2 mb-2">
+          <div class="event-card">
+            <div class="thumb" style="background:linear-gradient(135deg,#058BED,#12A9ED)"></div>
+            <div style="padding:12px 14px">
+              <div style="font-size:13px;font-weight:700;margin-bottom:2px">Джаз в парке</div>
+              <div style="font-size:11px;color:#5a6b7d">Сегодня · 19:00</div>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="thumb" style="background:linear-gradient(135deg,#042E75,#058BED)"></div>
+            <div style="padding:12px 14px">
+              <div style="font-size:13px;font-weight:700;margin-bottom:2px">Выставка «Город»</div>
+              <div style="font-size:11px;color:#5a6b7d">До 28 окт · центр</div>
+            </div>
+          </div>
+          <div class="event-card">
+            <div class="thumb" style="background:linear-gradient(135deg,#12A9ED,#042E75)"></div>
+            <div style="padding:12px 14px">
+              <div style="font-size:13px;font-weight:700;margin-bottom:2px">Фуд-маркет</div>
+              <div style="font-size:11px;color:#5a6b7d">Сб–Вс · набережная</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Работа</p>
+        <h2 class="big-headline mb-4">Возможности<br/>города — рядом.</h2>
+        <p class="soft-text mb-8 max-w-md">Вакансии и локальные предложения без шума чужих городов.</p>
+        <div class="phone-on-light reveal reveal-delay-1 mb-6">
+          <div class="phone-device">
+            <div class="phone-screen">
+              <div class="phone-island"></div>
+              <div class="phone-status">
+                <span>9:41</span>
+                <div class="flex items-center gap-1 opacity-60">
+                  <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5"/><rect x="4" y="2" width="3" height="8" rx="0.5"/><rect x="8" y="0.5" width="3" height="11" rx="0.5"/><rect x="12" y="0" width="3" height="12" rx="0.5" opacity="0.3"/></svg>
+                </div>
+              </div>
+              <div class="px-3.5 pb-8 pt-1">
+                <div style="font-size:18px;font-weight:800;margin-bottom:4px">Вакансии</div>
+                <div style="font-size:12px;color:#5a6b7d;margin-bottom:14px">24 новых сегодня</div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="padding:14px;border-radius:16px;border:1px solid #E8EEF5;background:#FDFCFD">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:2px">Product Designer</div>
+                    <div style="font-size:12px;color:#5a6b7d">Santero · удалённо / офис</div>
+                    <div style="margin-top:8px;font-size:12px;font-weight:600;color:#058BED">от 180 000 ₽</div>
+                  </div>
+                  <div style="padding:14px;border-radius:16px;border:1px solid #E8EEF5;background:#FDFCFD">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:2px">iOS Developer</div>
+                    <div style="font-size:12px;color:#5a6b7d">Tech Hub · центр</div>
+                    <div style="margin-top:8px;font-size:12px;font-weight:600;color:#058BED">от 250 000 ₽</div>
+                  </div>
+                  <div style="padding:14px;border-radius:16px;border:1px solid #E8EEF5;background:#FDFCFD">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:2px">Маркетолог</div>
+                    <div style="font-size:12px;color:#5a6b7d">Local Brand · гибрид</div>
+                    <div style="margin-top:8px;font-size:12px;font-weight:600;color:#058BED">от 120 000 ₽</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Недвижимость</p>
+        <h2 class="big-headline mb-4">Город — это место,<br/>где вы живёте.</h2>
+        <p class="soft-text mb-8 max-w-md">Объекты на карте, фильтры и предложения рядом с вами — часть той же экосистемы.</p>
+        <div class="rounded-3xl overflow-hidden border border-gray-100 bg-[#F5F8FC] reveal reveal-delay-1 mb-4" style="min-height:220px;position:relative">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 45%,rgba(5,139,237,.18),transparent 55%),radial-gradient(circle at 70% 60%,rgba(18,169,237,.12),transparent 40%);"></div>
+          <div style="position:absolute;top:28%;left:22%;width:14px;height:14px;border-radius:50%;background:#058BED;box-shadow:0 0 0 6px rgba(5,139,237,.25)"></div>
+          <div style="position:absolute;top:48%;left:55%;width:12px;height:12px;border-radius:50%;background:#12A9ED;box-shadow:0 0 0 5px rgba(18,169,237,.2)"></div>
+          <div style="position:absolute;top:62%;left:35%;width:12px;height:12px;border-radius:50%;background:#042E75;box-shadow:0 0 0 5px rgba(4,46,117,.2)"></div>
+          <div style="position:absolute;bottom:16px;left:16px;right:16px;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 12px 32px rgba(4,46,117,.12);border:1px solid #E8EEF5">
+            <div style="font-size:13px;font-weight:700;margin-bottom:2px">2-к. квартира · 54 м²</div>
+            <div style="font-size:12px;color:#5a6b7d">Центр · от 6,2 млн ₽</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Помощник</p>
+        <h2 class="big-headline mb-4">Спросите город.</h2>
+        <p class="soft-text mb-8 max-w-md">Не ищите нужный раздел — просто спросите. Помощник знает, что происходит вокруг.</p>
+        <div class="rounded-3xl border border-gray-100 bg-white p-5 reveal reveal-delay-1" style="box-shadow:0 16px 40px rgba(4,46,117,.08)">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="chat-bubble chat-user">Что интересного сегодня рядом?</div>
+            <div class="chat-bubble chat-bot">Сегодня рядом 12 событий. Ближе всего — джаз в парке в 19:00 и фуд-маркет на набережной. Показать маршрут?</div>
+            <div class="chat-bubble chat-user">Как быстрее до центра?</div>
+            <div class="chat-bubble chat-bot">Синяя линия — 2 мин до остановки. До центра ~14 мин. Трамвай 7 — альтернатива, если линия загружена.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-24">
+        <p class="section-label mb-3">Живой город</p>
+        <h2 class="big-headline mb-4">Ваш город меняется<br/>каждый день.</h2>
+        <p class="soft-text mb-8 max-w-md">Контент не статичен: события, вакансии, транспорт и уведомления подстраиваются под день и под вас.</p>
+        <div class="grid grid-cols-2 gap-3 reveal reveal-delay-1">
+          <div class="stat-pill" style="min-width:0"><span class="n">12</span><span class="l">событий сегодня</span></div>
+          <div class="stat-pill" style="min-width:0"><span class="n">24</span><span class="l">вакансии</span></div>
+          <div class="stat-pill" style="min-width:0"><span class="n">OK</span><span class="l">транспорт штатно</span></div>
+          <div class="stat-pill" style="min-width:0"><span class="n">3</span><span class="l">уведомления</span></div>
+        </div>
+      </section>
+
+      <section class="reveal pb-16 sm:pb-20 text-center">
+        <p class="section-label mb-4">Всё вместе</p>
+        <h2 class="big-headline mb-5">Всё важное —<br/>в одном месте.</h2>
+        <p class="soft-text max-w-sm mx-auto mb-8">Транспорт, работа, события, места, недвижимость, карта и помощник — одна система вокруг вашего города.</p>
+        <div class="flex flex-wrap justify-center gap-2 reveal reveal-delay-1">
+          <span class="chip">Транспорт</span>
+          <span class="chip">Работа</span>
+          <span class="chip">События</span>
+          <span class="chip">Места</span>
+          <span class="chip">Недвижимость</span>
+          <span class="chip">Карта</span>
+          <span class="chip">Помощник</span>
+        </div>
+      </section>
+
+      <section class="reveal pb-12">
+        <div class="final-cta">
+          <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)"></div>
+          <h2 style="font-size:clamp(1.5rem,4.5vw,2rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:12px;position:relative">Ваш город.<br/>В одном приложении.</h2>
+          <p style="opacity:.8;font-size:14px;margin-bottom:24px;position:relative;max-width:280px;margin-left:auto;margin-right:auto">Santero Город — городской суперсервис, который собирает жизнь города вокруг вас.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;position:relative">
+            <a href="#" onclick="event.preventDefault()" class="btn-ios" style="background:#000">App Store</a>
+            <a href="#" onclick="event.preventDefault()" class="btn-android">Google Play</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-min reveal">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 mb-10">
+          <div>
+            <div class="font-extrabold text-lg tracking-tight mb-1">SANTERO</div>
+            <div class="text-sm text-gray-500">Santero Город</div>
+          </div>
+          <nav class="flex flex-col gap-2.5 text-sm text-gray-600">
+            <a href="projects.html" class="hover:text-[#058BED] transition">Продукт</a>
+            <a href="index.html#about" class="hover:text-[#058BED] transition">О компании</a>
+            <a href="index.html#contact" class="hover:text-[#058BED] transition">Контакты</a>
+            <a href="nost.html" class="hover:text-[#058BED] transition">Проекты НОСТ</a>
+          </nav>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 border-t border-gray-100 text-xs text-gray-400">
+          <span>© 2021–2026 SANTERO</span>
+          <div class="flex gap-4">
+            <span>Политика конфиденциальности</span>
+            <span>Пользовательское соглашение</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div id="menuOverlay" class="menu-overlay fixed inset-0 z-[100] flex flex-col items-center pt-5 px-4">
+    <div class="w-full max-w-sm flex items-center justify-between mb-3 px-1">
+      <div class="flex items-center gap-2 bg-white/95 rounded-2xl px-3.5 py-2.5 shadow-sm">
+        <div class="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-xs">S</div>
+        <span class="font-bold text-sm">SANTERO</span>
+      </div>
+      <button id="menuClose" class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-gray-500 shadow-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="menu-panel w-full max-w-sm bg-white rounded-[1.75rem] shadow-2xl overflow-hidden py-2">
+      <nav class="pt-2 pb-1">
+        <a href="index.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Главная</a>
+        <a href="projects.html" class="block text-center px-6 py-4 text-[17px] font-medium text-primary-600">Наши проекты</a>
+        <a href="nost.html" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Проекты для холдинга НОСТ</a>
+        <a href="index.html#about" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">О нас</a>
+        <a href="index.html#contact" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600">Контакты</a>
+      </nav>
+      <div class="px-5 pb-5 pt-3">
+        <a href="index.html#contact" class="block w-full text-center px-6 py-3.5 rounded-full gradient-bg text-white font-semibold text-[15px]">Обсудить проект</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn'),menuClose=document.getElementById('menuClose'),menuOverlay=document.getElementById('menuOverlay');
+    function openMenu(){menuOverlay.classList.add('open');document.body.style.overflow='hidden'}
+    function closeMenu(){menuOverlay.classList.remove('open');document.body.style.overflow=''}
+    menuBtn.addEventListener('click',openMenu);menuClose.addEventListener('click',closeMenu);
+    menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)closeMenu()});
+
+    let slide=0;
+    const slides=document.querySelectorAll('.slide-text');
+    const total=slides.length;
+    function go(n){
+      slides[slide].classList.remove('show');slides[slide].classList.add('hide');
+      slide=(n+total)%total;
+      slides[slide].classList.remove('hide');slides[slide].classList.add('show');
+    }
+    document.getElementById('prevSlide').addEventListener('click',()=>go(slide-1));
+    document.getElementById('nextSlide').addEventListener('click',()=>go(slide+1));
+
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
