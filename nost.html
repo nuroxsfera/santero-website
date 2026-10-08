@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PALETTE: gradient #058BED→#042E75 | accent #12A9ED #CCFE03 | bg #FDFCFD #FFFFFF | text #000000 -->
   <title>Проекты НОСТ — SANTERO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{primary:{50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#058BED',dark:'#042E75',light:'#12A9ED',lime:'#CCFE03',bg:'#FDFCFD',white:'#FFFFFF',black:'#000000'},primary:{50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
   <style>
     body{font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;margin:0;-webkit-font-smoothing:antialiased}
-    .gradient-bg{background:linear-gradient(160deg,#7c3aed 0%,#a855f7 45%,#6366f1 100%)}
-    .sheet{border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:10;background:#fff;min-height:60vh}
+    .gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
+    .sheet{border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:10;background:#FFFFFF;min-height:60vh}
     .screen-mock{border-radius:20px;overflow:hidden;box-shadow:0 20px 40px -12px rgba(0,0,0,.2)}
     .browser-bar{background:#f1f5f9;border-bottom:1px solid #e2e8f0;padding:10px 14px;display:flex;align-items:center;gap:8px}
     .browser-dot{width:10px;height:10px;border-radius:50%}
     .nav-dot{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.22);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:background .2s;flex-shrink:0}
     .nav-dot:hover{background:rgba(255,255,255,.4)}
-    .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(124,58,237,.2);backdrop-filter:blur(14px)}
+    .menu-overlay{opacity:0;visibility:hidden;transition:all .3s ease;background:rgba(5,139,237,.18);backdrop-filter:blur(14px)}
     .menu-overlay.open{opacity:1;visibility:visible}
     .menu-panel{transform:translateY(24px) scale(.95);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1)}
     .menu-overlay.open .menu-panel{transform:translateY(0) scale(1);opacity:1}
     .case-panel{display:none}.case-panel.active{display:block}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
+<body class="bg-[#FDFCFD] text-black antialiased overflow-x-hidden">
 <div class="gradient-bg relative">
   <header class="relative z-20 px-5 sm:px-8 pt-5 pb-3 flex items-center justify-between">
     <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">SANTERO</a>
@@ -58,27 +59,27 @@
       <h2 class="text-2xl font-bold mb-3">ПолимерКолор</h2>
       <p class="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">Компания полимерно-порошковой окраски. Современный корпоративный сайт для B2B: услуги, портфолио, заявки.</p>
       <div class="space-y-3 mb-8 text-sm">
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Задача:</span> <span class="text-gray-600">современный B2B-сайт</span></div>
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Сделали:</span> <span class="text-gray-600">дизайн, вёрстка, формы, адаптив</span></div>
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Результат:</span> <span class="text-gray-600">сайт, который представляет компанию и собирает заявки</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Задача:</span> <span class="text-gray-600">современный B2B-сайт</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Сделали:</span> <span class="text-gray-600">дизайн, вёрстка, формы, адаптив</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Результат:</span> <span class="text-gray-600">сайт, который представляет компанию и собирает заявки</span></div>
       </div>
       <div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Корпоративный сайт</span><span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">B2B</span></div>
     </div>
     <div class="case-panel" data-case="1">
       <div class="screen-mock bg-white border border-gray-200 mb-8">
         <div class="browser-bar"><div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div><div class="ml-3 flex-1 h-6 rounded-md bg-gray-200/80 flex items-center px-3"><span class="text-[10px] text-gray-500">kodgard.ru</span></div></div>
-        <div class="h-44 sm:h-52 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center"><span class="text-white text-2xl font-bold">Кодгард</span></div>
+        <div class="h-44 sm:h-52 bg-gradient-to-br from-[#058BED] to-[#042E75] flex items-center justify-center"><span class="text-white text-2xl font-bold">Кодгард</span></div>
       </div>
       <h2 class="text-2xl font-bold mb-3">Кодгард</h2>
       <p class="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">Строительство заборов. Сайт с каталогом, калькулятором и формой заявки.</p>
       <div class="space-y-3 mb-8 text-sm">
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Задача:</span> <span class="text-gray-600">каталог + калькулятор + заявки</span></div>
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Сделали:</span> <span class="text-gray-600">структура, дизайн, калькулятор</span></div>
-        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Результат:</span> <span class="text-gray-600">удобный сайт для заказа и расчёта</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Задача:</span> <span class="text-gray-600">каталог + калькулятор + заявки</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Сделали:</span> <span class="text-gray-600">структура, дизайн, калькулятор</span></div>
+        <div class="bg-[#FDFCFD] rounded-xl p-4 border border-gray-100"><span class="text-primary-600 font-medium">Результат:</span> <span class="text-gray-600">удобный сайт для заказа и расчёта</span></div>
       </div>
       <div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Каталог</span><span class="px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">Калькулятор</span></div>
     </div>
-    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center mb-8">
+    <div class="bg-[#FDFCFD] rounded-2xl p-6 border border-gray-100 text-center mb-8">
       <p class="text-sm text-gray-600 mb-4">И другие проекты холдинга НОСТ — в работе</p>
       <a href="index.html#contact" class="inline-flex px-6 py-3 rounded-full gradient-bg text-white font-semibold text-sm">Обсудить проект</a>
     </div>
