@@ -24,7 +24,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 .menu-sub .sub-desc{display:block;font-size:11px;color:#9ca3af;margin-top:2px}
 .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
 .rv.on{opacity:1;transform:none}
-.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}
 .ticker{overflow:hidden;white-space:nowrap;padding:14px 0;background:#0a1628;color:#fff}
 .ticker-track{display:inline-flex;animation:tk 36s linear infinite}
 .ticker-item{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:0 1.4em;opacity:.85}
@@ -32,14 +32,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .hero-num{font-size:clamp(4.5rem,18vw,7rem);font-weight:800;letter-spacing:-.06em;line-height:.9;color:#fff;opacity:.12;position:absolute;right:4%;top:18%;pointer-events:none;user-select:none}
 .line-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid #E8EEF5;text-decoration:none;color:inherit;transition:color .2s}
+.line-link:first-of-type{border-top:1px solid #E8EEF5}
 .line-link:hover{color:#058BED}
 .line-link .arrow{opacity:.35;transition:opacity .2s,transform .2s}
 .line-link:hover .arrow{opacity:1;transform:translateX(4px)}
 .split-dark{background:#0a1628;color:#fff;border-radius:28px;padding:36px 24px;position:relative;overflow:hidden}
 .split-dark::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(5,139,237,.35),transparent 68%);right:-80px;bottom:-80px;pointer-events:none}
-.pill{display:inline-block;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.pill-blue{background:rgba(5,139,237,.12);color:#058BED}
-.pill-dark{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75)}
 .form-field{width:100%;padding:16px 0;border:none;border-bottom:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:15px;outline:none;border-radius:0}
 .form-field::placeholder{color:rgba(255,255,255,.4)}
 .form-field:focus{border-bottom-color:rgba(255,255,255,.7)}
@@ -80,7 +78,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 </h1>
 <p class="text-white/75 text-[15px] sm:text-lg leading-relaxed max-w-md mb-10 relative z-10">
 Собственные продукты. Исследования. Решения для бизнеса.<br/>
-Santero — это долгосрочная работа над тем, чем люди пользуются каждый день.
+Santero — долгосрочная работа над тем, чем люди пользуются каждый день.
 </p>
 <div class="flex flex-wrap gap-3 relative z-10">
 <a href="#world" class="btn-white">Смотреть</a>
@@ -120,66 +118,35 @@ Santero существует не для того, чтобы закрывать
 Мы запускаем и развиваем собственные сервисы — и параллельно применяем ту же глубину в клиентской работе.
 </p>
 <p class="text-[#5a6b7d] text-[15px] sm:text-base leading-relaxed max-w-lg">
-Исследования, дизайн и инженерия у нас не разделены по отделам.
-Это один процесс: понять мир → собрать систему → выпустить в жизнь.
+Исследования, дизайн и инженерия — один процесс: понять мир → собрать систему → выпустить в жизнь.
 </p>
 </div>
 </section>
 
-<section class="bg-[#0a1628] text-white px-5 sm:px-8 py-20 sm:py-28">
-<div class="max-w-3xl mx-auto">
-<p class="rv text-[11px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-12">Три опоры</p>
-<div class="space-y-0">
-<div class="rv rv-d1 py-8 border-t border-white/10">
-<div class="text-[#12A9ED] text-sm font-semibold mb-2">01 — Продукты</div>
-<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, что мы выпускаем под своим именем</h3>
-<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Долгая продуктовая работа. Не MVP «на продажу клиенту», а сервисы, которые живут и растут.</p>
-</div>
-<div class="rv rv-d2 py-8 border-t border-white/10">
-<div class="text-[#12A9ED] text-sm font-semibold mb-2">02 — Исследования</div>
-<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, без чего продукт — декорация</h3>
-<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Город, поведение, интерфейсы, AI. Мы изучаем, прежде чем строить — и публикуем то, что важно.</p>
-</div>
-<div class="rv rv-d3 py-8 border-t border-white/10 border-b border-white/10">
-<div class="text-[#12A9ED] text-sm font-semibold mb-2">03 — Кейсы</div>
-<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, что мы делаем для других</h3>
-<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Когда бизнесу нужна та же планка — цифровая система, а не «ещё один сайт».</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="products">
-<div class="rv mb-14">
-<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Продукты</p>
-<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15]">
-Экосистема Santero
-</h2>
-</div>
-
-<a href="projects.html" class="rv block group mb-6">
-<div class="g rounded-[28px] p-7 sm:p-10 text-white relative overflow-hidden min-h-[280px] flex flex-col justify-between">
-<div class="absolute right-[-20px] top-[-20px] w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+<section class="px-5 sm:px-8 pb-8 max-w-3xl mx-auto">
+<div class="rv">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-6">Направления</p>
+<a href="projects.html" class="line-link">
 <div>
-<span class="pill pill-dark mb-6">Live</span>
-<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Santero Город</h3>
-<p class="text-white/70 text-[15px] leading-relaxed max-w-sm">
-Городской суперсервис: транспорт, события, работа, места и помощник — в одном цифровом пространстве вокруг человека.
-</p>
+<div class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED] mb-1">Продукт</div>
+<div class="text-lg sm:text-xl font-bold tracking-tight">Santero Город</div>
 </div>
-<div class="mt-8 flex items-center gap-2 text-sm font-semibold">
-Открыть продукт
-<svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-</div>
-</div>
+<span class="arrow text-2xl font-light">→</span>
 </a>
-
-<div class="rv rv-d1 rounded-[28px] border border-[#E8EEF5] bg-[#F5F8FC] p-7 sm:p-10 min-h-[180px] flex flex-col justify-between">
+<a href="research.html" class="line-link">
 <div>
-<span class="pill pill-blue mb-5">Soon</span>
-<h3 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-2 text-[#0a1628]">Santero Кино</h3>
-<p class="text-[#5a6b7d] text-[14px] leading-relaxed max-w-sm">Онлайн-кинотеатр. Следующий продукт экосистемы — в разработке.</p>
+<div class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED] mb-1">Исследования</div>
+<div class="text-lg sm:text-xl font-bold tracking-tight">Думаем публично</div>
 </div>
+<span class="arrow text-2xl font-light">→</span>
+</a>
+<a href="nost.html" class="line-link">
+<div>
+<div class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED] mb-1">Кейсы</div>
+<div class="text-lg sm:text-xl font-bold tracking-tight">Работа с бизнесом</div>
+</div>
+<span class="arrow text-2xl font-light">→</span>
+</a>
 </div>
 </section>
 
@@ -217,26 +184,6 @@ Santero существует не для того, чтобы закрывать
 </div>
 </section>
 
-<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="cases">
-<div class="rv mb-10">
-<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Кейсы</p>
-<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] mb-4">
-Работа с бизнесом
-</h2>
-<p class="text-[#5a6b7d] text-[15px] leading-relaxed max-w-md">
-Та же дисциплина, что в продуктах — для компаний, которым нужна цифровая система, а не макет.
-</p>
-</div>
-
-<a href="nost.html" class="line-link rv">
-<div>
-<div class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED] mb-1">Холдинг</div>
-<div class="text-lg sm:text-xl font-bold tracking-tight">НОСТ — сайты и цифровые решения</div>
-</div>
-<span class="arrow text-2xl font-light">→</span>
-</a>
-</section>
-
 <section class="px-5 sm:px-8 pb-8 max-w-3xl mx-auto">
 <div class="rv grid grid-cols-3 gap-4 sm:gap-8 py-12 border-t border-b border-[#E8EEF5]">
 <div>
@@ -259,7 +206,7 @@ Santero существует не для того, чтобы закрывать
 <div class="relative z-10">
 <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-5">Контакт</p>
 <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Есть задача<br/>или идея?</h2>
-<p class="text-white/55 text-sm mb-10 max-w-sm">Напишите коротко — ответим в течение дня. Продукт, исследование или проект для компании.</p>
+<p class="text-white/55 text-sm mb-10 max-w-sm">Напишите коротко — ответим в течение дня.</p>
 <form class="space-y-6" onsubmit="event.preventDefault();alert('Спасибо! Мы скоро свяжемся.');">
 <input class="form-field" type="text" placeholder="Имя" required/>
 <input class="form-field" type="tel" placeholder="Телефон или Telegram" required/>
@@ -282,9 +229,9 @@ Santero существует не для того, чтобы закрывать
 <div>
 <div class="font-semibold text-[#0a1628] mb-3">Навигация</div>
 <nav class="flex flex-col gap-2">
-<a href="#products">Продукты</a>
+<a href="projects.html">Продукты</a>
 <a href="research.html">Исследования</a>
-<a href="#cases">Кейсы</a>
+<a href="nost.html">Кейсы</a>
 <a href="#contact">Контакт</a>
 </nav>
 </div>
@@ -293,7 +240,6 @@ Santero существует не для того, чтобы закрывать
 <nav class="flex flex-col gap-2">
 <a href="projects.html">Santero Город</a>
 <span class="text-gray-400">Santero Кино</span>
-<a href="nost.html">Кейс НОСТ</a>
 </nav>
 </div>
 </div>
