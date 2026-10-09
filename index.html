@@ -3,19 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SANTERO — Технологическая компания</title>
-<meta name="description" content="SANTERO — технологическая компания. Собственные цифровые продукты и сильные кейсы для бизнеса."/>
+<title>SANTERO</title>
+<meta name="description" content="Santero — технологическая компания. Собственные продукты, исследования и цифровые решения."/>
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#058BED',dark:'#042E75',light:'#12A9ED',lime:'#CCFE03',bg:'#FDFCFD'},primary:{50:'#e8f4fd',100:'#d1eafb',200:'#a3d5f7',300:'#6bbcf0',400:'#12A9ED',500:'#058BED',600:'#0470c0',700:'#042E75',800:'#032456',900:'#021a3d'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#058BED',dark:'#042E75',light:'#12A9ED',lime:'#CCFE03'},primary:{400:'#12A9ED',500:'#058BED',700:'#042E75'}},fontFamily:{sans:['-apple-system','BlinkMacSystemFont','SF Pro Display','SF Pro Text','Segoe UI','Roboto','Helvetica','Arial','sans-serif']}}}}</script>
 <style>
 *{box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;-webkit-font-smoothing:antialiased;background:#FDFCFD}
-.gradient-bg{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
-.gradient-text{background:linear-gradient(135deg,#058BED,#12A9ED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sheet{border-radius:32px 32px 0 0;margin-top:-32px;position:relative;z-index:10;background:#fff;box-shadow:0 -8px 40px rgba(4,46,117,.1)}
-.section-label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#12A9ED}
-.big-headline{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#0a1628}
-.soft-text{color:#5a6b7d;line-height:1.65;font-size:15px}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;-webkit-font-smoothing:antialiased;background:#FDFCFD;color:#0a1628}
+.g{background:linear-gradient(160deg,#058BED 0%,#042E75 100%)}
 .menu-overlay{opacity:0;visibility:hidden;transition:all .3s;background:rgba(5,139,237,.18);backdrop-filter:blur(14px)}
 .menu-overlay.open{opacity:1;visibility:visible}
 .menu-panel{transform:translateY(24px) scale(.95);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1)}
@@ -26,262 +22,278 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 .menu-sub a{display:block;text-align:center;padding:12px 24px;font-size:15px;color:#374151;text-decoration:none}
 .menu-sub a:hover{color:#058BED}
 .menu-sub .sub-desc{display:block;font-size:11px;color:#9ca3af;margin-top:2px}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
-.marquee{overflow:hidden;white-space:nowrap;padding:16px 0;background:#058BED;color:#fff;user-select:none}
-.marquee-track{display:inline-flex;animation:marquee 30s linear infinite;will-change:transform}
-.marquee-item{font-size:clamp(1rem,3.5vw,1.25rem);font-weight:700;letter-spacing:.04em;padding:0 1.1em;opacity:.95}
-.marquee-dot{opacity:.45;padding:0 .15em}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.product-card{display:block;border-radius:24px;overflow:hidden;background:#fff;border:1px solid #E8EEF5;box-shadow:0 12px 40px rgba(4,46,117,.08);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;text-decoration:none;color:inherit}
-.product-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(4,46,117,.14)}
-.product-card .cover{height:140px;background:linear-gradient(160deg,#058BED,#042E75);position:relative;overflow:hidden}
-.product-card .cover::after{content:'';position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);right:-40px;top:-40px}
-.case-card{display:block;border-radius:20px;overflow:hidden;background:#F5F8FC;border:1px solid #E8EEF5;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s}
-.case-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(4,46,117,.1)}
-.research-card{border-radius:20px;padding:22px 20px;background:#fff;border:1px solid #E8EEF5;transition:border-color .25s,box-shadow .25s}
-.research-card:hover{border-color:rgba(5,139,237,.35);box-shadow:0 12px 32px rgba(4,46,117,.08)}
-.stat-block{border-radius:20px;padding:20px 16px;background:#F5F8FC;border:1px solid #E8EEF5;text-align:center}
-.stat-block .n{font-size:1.75rem;font-weight:800;letter-spacing:-.03em;color:#0a1628}
-.stat-block .l{font-size:12px;color:#5a6b7d;margin-top:4px}
-.chip{display:inline-flex;padding:8px 14px;border-radius:999px;background:#F5F8FC;border:1px solid #E8EEF5;font-size:13px;font-weight:500;color:#0a1628}
-.capability{padding:18px 16px;border-radius:18px;background:#F5F8FC;border:1px solid #E8EEF5}
-.capability .t{font-weight:700;font-size:14px;color:#0a1628;margin-bottom:4px}
-.capability .d{font-size:13px;color:#5a6b7d;line-height:1.5}
-.cta-panel{border-radius:28px;background:linear-gradient(160deg,#058BED 0%,#042E75 100%);padding:40px 28px;color:#fff;position:relative;overflow:hidden}
-.cta-panel::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(18,169,237,.3),transparent 70%);right:-50px;top:-40px;pointer-events:none}
-.footer-min{border-top:1px solid #E8EEF5;padding:40px 0 28px;margin-top:8px}
-.form-input{width:100%;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:14px;outline:none}
-.form-input::placeholder{color:rgba(255,255,255,.5)}
-.form-input:focus{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.16)}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+.ticker{overflow:hidden;white-space:nowrap;padding:14px 0;background:#0a1628;color:#fff}
+.ticker-track{display:inline-flex;animation:tk 36s linear infinite}
+.ticker-item{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:0 1.4em;opacity:.85}
+.ticker-sep{opacity:.3;padding:0 .2em}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero-num{font-size:clamp(4.5rem,18vw,7rem);font-weight:800;letter-spacing:-.06em;line-height:.9;color:#fff;opacity:.12;position:absolute;right:4%;top:18%;pointer-events:none;user-select:none}
+.line-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid #E8EEF5;text-decoration:none;color:inherit;transition:color .2s}
+.line-link:hover{color:#058BED}
+.line-link .arrow{opacity:.35;transition:opacity .2s,transform .2s}
+.line-link:hover .arrow{opacity:1;transform:translateX(4px)}
+.split-dark{background:#0a1628;color:#fff;border-radius:28px;padding:36px 24px;position:relative;overflow:hidden}
+.split-dark::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(5,139,237,.35),transparent 68%);right:-80px;bottom:-80px;pointer-events:none}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.pill-blue{background:rgba(5,139,237,.12);color:#058BED}
+.pill-dark{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75)}
+.research-row{display:grid;gap:0}
+.research-row a{display:block;padding:28px 0;border-top:1px solid #E8EEF5;text-decoration:none;color:inherit;transition:background .2s}
+.research-row a:last-child{border-bottom:1px solid #E8EEF5}
+.research-row a:hover{background:#F5F8FC}
+.form-field{width:100%;padding:16px 0;border:none;border-bottom:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:15px;outline:none;border-radius:0}
+.form-field::placeholder{color:rgba(255,255,255,.4)}
+.form-field:focus{border-bottom-color:rgba(255,255,255,.7)}
+.btn-white{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;background:#fff;color:#042E75;font-weight:600;font-size:14px;text-decoration:none;border:none;cursor:pointer;transition:background .2s}
+.btn-white:hover{background:#F0F4F8}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;background:transparent;color:#fff;font-weight:600;font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,.3);transition:background .2s,border-color .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+.foot a{color:#5a6b7d;text-decoration:none}
+.foot a:hover{color:#058BED}
 </style>
 </head>
-<body class="text-black antialiased overflow-x-hidden">
+<body class="overflow-x-hidden">
 
-<div class="gradient-bg relative">
-<header class="relative z-20 px-5 sm:px-8 pt-5 pb-2 flex items-center justify-between">
+<section class="g relative min-h-[92vh] min-h-[92dvh] flex flex-col">
+<header class="relative z-20 px-5 sm:px-8 pt-5 pb-2 flex items-center justify-between flex-shrink-0">
 <a href="index.html" class="text-white text-lg tracking-wide" style="font-weight:700">SANTERO</a>
-<button id="menuBtn" class="p-1 flex items-center justify-center text-white hover:opacity-80 transition" aria-label="Меню">
+<button id="menuBtn" class="p-1 text-white hover:opacity-80 transition" aria-label="Меню">
 <svg width="20" height="20" viewBox="0 0 22 22" fill="currentColor"><rect x="1" y="1" width="8.5" height="8.5" rx="2.2"/><rect x="12.5" y="1" width="8.5" height="8.5" rx="2.2"/><rect x="1" y="12.5" width="8.5" height="8.5" rx="2.2"/><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="2.2"/></svg>
 </button>
 </header>
 
-<div class="relative z-10 px-5 sm:px-8 pt-10 pb-20 sm:pb-24 max-w-2xl mx-auto text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-white/90 text-xs font-medium mb-6">
-<span class="w-1.5 h-1.5 rounded-full bg-[#CCFE03]"></span>
-Технологическая компания
+<div class="flex-1 flex flex-col justify-end px-5 sm:px-8 pb-14 sm:pb-16 max-w-3xl mx-auto w-full relative">
+<span class="hero-num" aria-hidden="true">01</span>
+<p class="text-white/50 text-xs font-semibold tracking-[0.2em] uppercase mb-6 relative z-10">Технологическая компания</p>
+<h1 class="text-[2.35rem] sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.08] tracking-tight mb-6 relative z-10">
+Мы строим цифровые<br class="hidden sm:block"/> среды, а не сайты.
+</h1>
+<p class="text-white/75 text-[15px] sm:text-lg leading-relaxed max-w-md mb-10 relative z-10">
+Собственные продукты. Исследования. Решения для бизнеса.<br/>
+Santero — это долгосрочная работа над тем, чем люди пользуются каждый день.
+</p>
+<div class="flex flex-wrap gap-3 relative z-10">
+<a href="#world" class="btn-white">Смотреть</a>
+<a href="#contact" class="btn-ghost">Связаться</a>
 </div>
-<h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">Цифровые продукты<br/>и сильные кейсы</h1>
-<p class="text-white/80 text-base sm:text-lg leading-relaxed mb-9 max-w-lg mx-auto">Мы создаём собственные сервисы и разрабатываем цифровые решения для бизнеса. Santero — это продукты, исследования и экспертиза.</p>
-<div class="flex flex-wrap gap-3 justify-center">
-<a href="#products" class="px-7 py-3.5 rounded-full bg-white text-[#042E75] font-semibold text-sm hover:bg-[#FDFCFD] transition shadow-lg">Продукты</a>
-<a href="#contact" class="px-7 py-3.5 rounded-full bg-white/15 text-white font-semibold text-sm hover:bg-white/25 transition border border-white/25">Обсудить проект</a>
 </div>
-</div>
-</div>
-
-<div class="sheet">
-<div class="max-w-2xl mx-auto px-5 sm:px-8 pt-12 pb-6">
-
-<section class="reveal grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16 sm:mb-20">
-<div class="stat-block"><div class="n gradient-text">5+</div><div class="l">лет на рынке</div></div>
-<div class="stat-block"><div class="n gradient-text">30+</div><div class="l">проектов</div></div>
-<div class="stat-block"><div class="n gradient-text">2</div><div class="l">собственных продукта</div></div>
-<div class="stat-block"><div class="n gradient-text">1</div><div class="l">холдинг-партнёр</div></div>
 </section>
 
-<section class="reveal pb-16 sm:pb-20">
-<p class="section-label mb-4">О Santero</p>
-<h2 class="big-headline mb-5">Не агентство.<br/>Технологическая компания.</h2>
-<p class="soft-text max-w-md mb-8">Мы строим собственные цифровые продукты и параллельно делаем сильные кейсы для клиентов. Цель — расти до уровня крупных tech-компаний.</p>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-<div class="capability"><div class="t">Продукты</div><div class="d">Собственные сервисы: город, медиа и дальше</div></div>
-<div class="capability"><div class="t">Кейсы</div><div class="d">Сайты и цифровые решения для бизнеса</div></div>
-<div class="capability"><div class="t">Исследования</div><div class="d">Город, продукт, UX — чтобы решения были сильнее</div></div>
+<div class="ticker" aria-hidden="true">
+<div class="ticker-track">
+<span class="ticker-item">Products</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Research</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Cases</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Santero</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Products</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Research</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Cases</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Santero</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Products</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Research</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Cases</span><span class="ticker-sep">/</span>
+<span class="ticker-item">Santero</span><span class="ticker-sep">/</span>
+</div>
+</div>
+
+<main>
+
+<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="world">
+<div class="rv">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Позиция</p>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] mb-8">
+Агентства сдают проекты.<br/>
+Мы остаёмся с продуктом.
+</h2>
+<p class="text-[#5a6b7d] text-[15px] sm:text-base leading-relaxed max-w-lg mb-6">
+Santero существует не для того, чтобы закрывать брифы.
+Мы запускаем и развиваем собственные сервисы — и параллельно применяем ту же глубину в клиентской работе.
+</p>
+<p class="text-[#5a6b7d] text-[15px] sm:text-base leading-relaxed max-w-lg">
+Исследования, дизайн и инженерия у нас не разделены по отделам.
+Это один процесс: понять мир → собрать систему → выпустить в жизнь.
+</p>
 </div>
 </section>
+
+<section class="bg-[#0a1628] text-white px-5 sm:px-8 py-20 sm:py-28">
+<div class="max-w-3xl mx-auto">
+<p class="rv text-[11px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-12">Три опоры</p>
+<div class="space-y-0">
+<div class="rv rv-d1 py-8 border-t border-white/10">
+<div class="text-[#12A9ED] text-sm font-semibold mb-2">01 — Продукты</div>
+<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, что мы выпускаем под своим именем</h3>
+<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Долгая продуктовая работа. Не MVP «на продажу клиенту», а сервисы, которые живут и растут.</p>
+</div>
+<div class="rv rv-d2 py-8 border-t border-white/10">
+<div class="text-[#12A9ED] text-sm font-semibold mb-2">02 — Исследования</div>
+<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, без чего продукт — декорация</h3>
+<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Город, поведение, интерфейсы, AI. Мы изучаем, прежде чем строить — и публикуем то, что важно.</p>
+</div>
+<div class="rv rv-d3 py-8 border-t border-white/10 border-b border-white/10">
+<div class="text-[#12A9ED] text-sm font-semibold mb-2">03 — Кейсы</div>
+<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">То, что мы делаем для других</h3>
+<p class="text-white/55 text-[15px] leading-relaxed max-w-md">Когда бизнесу нужна та же планка — цифровая система, а не «ещё один сайт».</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="products">
+<div class="rv mb-14">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Продукты</p>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15]">
+Экосистема Santero
+</h2>
 </div>
 
-<div class="marquee" aria-hidden="true">
-<div class="marquee-track">
-<span class="marquee-item">ПРОДУКТЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">КЕЙСЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">ИССЛЕДОВАНИЯ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">SANTERO</span><span class="marquee-dot">·</span>
-<span class="marquee-item">ПРОДУКТЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">КЕЙСЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">ИССЛЕДОВАНИЯ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">SANTERO</span><span class="marquee-dot">·</span>
-<span class="marquee-item">ПРОДУКТЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">КЕЙСЫ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">ИССЛЕДОВАНИЯ</span><span class="marquee-dot">·</span>
-<span class="marquee-item">SANTERO</span><span class="marquee-dot">·</span>
+<a href="projects.html" class="rv block group mb-6">
+<div class="g rounded-[28px] p-7 sm:p-10 text-white relative overflow-hidden min-h-[280px] flex flex-col justify-between">
+<div class="absolute right-[-20px] top-[-20px] w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+<div>
+<span class="pill pill-dark mb-6">Live</span>
+<h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Santero Город</h3>
+<p class="text-white/70 text-[15px] leading-relaxed max-w-sm">
+Городской суперсервис: транспорт, события, работа, места и помощник — в одном цифровом пространстве вокруг человека.
+</p>
 </div>
+<div class="mt-8 flex items-center gap-2 text-sm font-semibold">
+Открыть продукт
+<svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
 </div>
-
-<div class="max-w-2xl mx-auto px-5 sm:px-8 pt-16 pb-6">
-
-<section class="reveal pb-16 sm:pb-20" id="products">
-<p class="section-label mb-3">Продукты Santero</p>
-<h2 class="big-headline mb-4">То, что мы строим<br/>сами.</h2>
-<p class="soft-text mb-10 max-w-md">Собственные продукты — ядро компании. Не клиентские заказы, а долгая продуктовая работа.</p>
-
-<a href="projects.html" class="product-card reveal reveal-d1 mb-4">
-<div class="cover flex items-end p-5">
-<div class="relative z-10">
-<div class="text-white/70 text-xs font-medium mb-1">Собственный продукт</div>
-<div class="text-white text-xl font-extrabold tracking-tight">Santero Город</div>
-</div>
-</div>
-<div class="p-5">
-<p class="text-sm text-gray-600 leading-relaxed mb-3">Городской цифровой суперсервис: транспорт, события, работа, места и AI-помощник в одном приложении.</p>
-<span class="text-sm font-semibold text-[#058BED]">Смотреть продукт →</span>
 </div>
 </a>
 
-<div class="product-card opacity-90">
-<div class="cover flex items-end p-5" style="background:linear-gradient(160deg,#042E75,#0a1a3a)">
-<div class="relative z-10">
-<div class="text-white/70 text-xs font-medium mb-1">Скоро</div>
-<div class="text-white text-xl font-extrabold tracking-tight">Santero Кино</div>
-</div>
-</div>
-<div class="p-5">
-<p class="text-sm text-gray-600 leading-relaxed mb-3">Онлайн-кинотеатр. В разработке — следующий продукт экосистемы Santero.</p>
-<span class="text-sm font-medium text-gray-400">Скоро</span>
+<div class="rv rv-d1 rounded-[28px] border border-[#E8EEF5] bg-[#F5F8FC] p-7 sm:p-10 min-h-[180px] flex flex-col justify-between">
+<div>
+<span class="pill pill-blue mb-5">Soon</span>
+<h3 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-2 text-[#0a1628]">Santero Кино</h3>
+<p class="text-[#5a6b7d] text-[14px] leading-relaxed max-w-sm">Онлайн-кинотеатр. Следующий продукт экосистемы — в разработке.</p>
 </div>
 </div>
 </section>
 
-<section class="reveal pb-16 sm:pb-20" id="cases">
-<p class="section-label mb-3">Кейсы</p>
-<h2 class="big-headline mb-4">Цифровые решения<br/>для бизнеса.</h2>
-<p class="soft-text mb-10 max-w-md">Параллельно с продуктами работаем с компаниями: сайты, сервисы, цифровые экосистемы.</p>
+<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="research">
+<div class="rv mb-12">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Исследования</p>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] mb-5">
+Думаем публично
+</h2>
+<p class="text-[#5a6b7d] text-[15px] leading-relaxed max-w-md">
+Не презентации «для галочки». Наблюдения и выводы, которые влияют на то, что мы строим.
+</p>
+</div>
 
-<a href="nost.html" class="case-card reveal reveal-d1">
-<div class="h-28 gradient-bg flex items-end p-5">
-<span class="text-white font-extrabold text-lg tracking-tight">Холдинг НОСТ</span>
+<div class="research-row rv">
+<a href="#research">
+<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">Мобильность · 2025</span>
+<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Как люди реально перемещаются по городу</h3>
+<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Пересадки, «слепые зоны» приложений и привычки, которые не видны в аналитике сторов.</p>
+</a>
+<a href="#research">
+<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">Продукт · 2025</span>
+<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Граница суперсервиса</h3>
+<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Где «всё в одном» усиливает жизнь — и где превращается в шум.</p>
+</a>
+<a href="#research">
+<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">AI · 2026</span>
+<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Когда город можно просто спросить</h3>
+<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Сценарии, в которых помощник заменяет поиск по разделам — и когда ещё нет.</p>
+</a>
 </div>
-<div class="p-5">
-<div class="text-xs font-medium text-[#058BED] mb-1">Корпоративные проекты</div>
-<div class="font-bold text-base text-gray-900 mb-1">Сайты и цифровые решения холдинга</div>
-<p class="text-sm text-gray-500">Серия проектов для структуры холдинга — от лендингов до сложных веб-систем.</p>
+</section>
+
+<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="cases">
+<div class="rv mb-10">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Кейсы</p>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] mb-4">
+Работа с бизнесом
+</h2>
+<p class="text-[#5a6b7d] text-[15px] leading-relaxed max-w-md">
+Та же дисциплина, что в продуктах — для компаний, которым нужна цифровая система, а не макет.
+</p>
 </div>
+
+<a href="nost.html" class="line-link rv">
+<div>
+<div class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED] mb-1">Холдинг</div>
+<div class="text-lg sm:text-xl font-bold tracking-tight">НОСТ — сайты и цифровые решения</div>
+</div>
+<span class="arrow text-2xl font-light">→</span>
 </a>
 </section>
-</div>
 
-<div class="bg-[#F5F8FC] border-y border-[#E8EEF5]">
-<div class="max-w-2xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
-<section class="reveal" id="research">
-<p class="section-label mb-3">Исследования</p>
-<h2 class="big-headline mb-4">Думаем о продукте<br/>глубже интерфейса.</h2>
-<p class="soft-text mb-10 max-w-md">Исследования помогают нам строить сервисы, которые реально работают в городе и для людей — не только «красиво на экране».</p>
-
-<div class="space-y-3">
-<article class="research-card reveal reveal-d1">
-<div class="flex items-start justify-between gap-3 mb-2">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">Городская мобильность</span>
-<span class="text-[11px] text-gray-400">2025</span>
+<section class="px-5 sm:px-8 pb-8 max-w-3xl mx-auto">
+<div class="rv grid grid-cols-3 gap-4 sm:gap-8 py-12 border-t border-b border-[#E8EEF5]">
+<div>
+<div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0a1628]">5+</div>
+<div class="text-xs text-[#5a6b7d] mt-1">лет</div>
 </div>
-<h3 class="font-bold text-[15px] text-gray-900 mb-1.5">Как люди реально перемещаются по городу</h3>
-<p class="text-sm text-gray-500 leading-relaxed">Поведенческие паттерны, пересадки и «слепые зоны» городских приложений — выводы, которые легли в основу Santero Город.</p>
-</article>
-
-<article class="research-card reveal reveal-d2">
-<div class="flex items-start justify-between gap-3 mb-2">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">UX / продукт</span>
-<span class="text-[11px] text-gray-400">2025</span>
+<div>
+<div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0a1628]">30+</div>
+<div class="text-xs text-[#5a6b7d] mt-1">проектов</div>
 </div>
-<h3 class="font-bold text-[15px] text-gray-900 mb-1.5">Один экран вместо пяти приложений</h3>
-<p class="text-sm text-gray-500 leading-relaxed">Почему суперсервис выигрывает у набора узких приложений — и где граница, после которой «всё в одном» становится шумом.</p>
-</article>
-
-<article class="research-card reveal reveal-d3">
-<div class="flex items-start justify-between gap-3 mb-2">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">AI в городе</span>
-<span class="text-[11px] text-gray-400">2026</span>
+<div>
+<div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0a1628]">2</div>
+<div class="text-xs text-[#5a6b7d] mt-1">продукта</div>
 </div>
-<h3 class="font-bold text-[15px] text-gray-900 mb-1.5">Когда город можно просто спросить</h3>
-<p class="text-sm text-gray-500 leading-relaxed">Сценарии голосовых и текстовых запросов к городскому помощнику: от маршрута до «что интересного рядом».</p>
-</article>
-</div>
-</section>
-</div>
-</div>
-
-<div class="max-w-2xl mx-auto px-5 sm:px-8 pt-16 pb-6">
-
-<section class="reveal pb-16 sm:pb-20">
-<p class="section-label mb-3">Экспертиза</p>
-<h2 class="big-headline mb-4">Что мы умеем<br/>на практике.</h2>
-<p class="soft-text mb-8 max-w-md">От исследования и дизайна до запуска и развития продукта.</p>
-<div class="flex flex-wrap gap-2">
-<span class="chip">Product design</span>
-<span class="chip">UI / UX</span>
-<span class="chip">Web</span>
-<span class="chip">Mobile</span>
-<span class="chip">Исследования</span>
-<span class="chip">Прототипирование</span>
-<span class="chip">Запуск продуктов</span>
-<span class="chip">Дизайн-системы</span>
 </div>
 </section>
 
-<section class="reveal pb-16 sm:pb-20" id="about">
-<p class="section-label mb-3">Компания</p>
-<h2 class="big-headline mb-5">Растём к уровню<br/>крупного tech.</h2>
-<p class="soft-text mb-4 max-w-md">Уже 5 лет разрабатываем цифровые продукты и решения. Работаем с холдингом НОСТ и параллельно строим собственные сервисы.</p>
-<p class="soft-text max-w-md">Нам важно не «сдать сайт», а сделать продукт, которым пользуются. Поэтому исследования, дизайн и разработка у нас связаны в одном процессе.</p>
-</section>
-
-<section class="reveal pb-12" id="contact">
-<div class="cta-panel">
-<h2 class="text-xl sm:text-2xl font-extrabold mb-2 relative z-10 tracking-tight">Обсудим ваш проект</h2>
-<p class="text-white/80 text-sm mb-6 relative z-10">Сайт, сервис или исследование — ответим в течение дня.</p>
-<form class="space-y-3 relative z-10" onsubmit="event.preventDefault();alert('Спасибо! Мы скоро свяжемся.');">
-<input type="text" placeholder="Ваше имя" required class="form-input"/>
-<input type="tel" placeholder="Телефон или Telegram" required class="form-input"/>
-<textarea placeholder="Кратко о задаче" rows="3" class="form-input resize-none"></textarea>
-<button type="submit" class="w-full py-3.5 rounded-full bg-white text-[#042E75] font-semibold text-sm hover:bg-[#FDFCFD] transition">Отправить заявку</button>
+<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="contact">
+<div class="split-dark rv">
+<div class="relative z-10">
+<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-5">Контакт</p>
+<h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Есть задача<br/>или идея?</h2>
+<p class="text-white/55 text-sm mb-10 max-w-sm">Напишите коротко — ответим в течение дня. Продукт, исследование или проект для компании.</p>
+<form class="space-y-6" onsubmit="event.preventDefault();alert('Спасибо! Мы скоро свяжемся.');">
+<input class="form-field" type="text" placeholder="Имя" required/>
+<input class="form-field" type="tel" placeholder="Телефон или Telegram" required/>
+<textarea class="form-field resize-none" rows="2" placeholder="О задаче"></textarea>
+<button type="submit" class="btn-white mt-4">Отправить</button>
 </form>
 </div>
+</div>
 </section>
 
-<footer class="footer-min reveal">
-<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 mb-10">
+</main>
+
+<footer class="foot px-5 sm:px-8 pb-12 max-w-3xl mx-auto">
+<div class="flex flex-col sm:flex-row sm:justify-between gap-10 pt-4 border-t border-[#E8EEF5]">
 <div>
 <div class="font-extrabold text-lg tracking-tight mb-1">SANTERO</div>
-<div class="text-sm text-gray-500">Технологическая компания</div>
+<div class="text-sm text-[#5a6b7d]">Технологическая компания</div>
 </div>
-<div class="grid grid-cols-2 gap-8 text-sm">
+<div class="grid grid-cols-2 gap-10 text-sm">
 <div>
-<div class="font-semibold text-gray-900 mb-2.5">Продукты</div>
-<nav class="flex flex-col gap-2 text-gray-600">
-<a href="projects.html" class="hover:text-[#058BED]">Santero Город</a>
+<div class="font-semibold text-[#0a1628] mb-3">Навигация</div>
+<nav class="flex flex-col gap-2">
+<a href="#products">Продукты</a>
+<a href="#research">Исследования</a>
+<a href="#cases">Кейсы</a>
+<a href="#contact">Контакт</a>
+</nav>
+</div>
+<div>
+<div class="font-semibold text-[#0a1628] mb-3">Продукты</div>
+<nav class="flex flex-col gap-2">
+<a href="projects.html">Santero Город</a>
 <span class="text-gray-400">Santero Кино</span>
-</nav>
-</div>
-<div>
-<div class="font-semibold text-gray-900 mb-2.5">Кейсы</div>
-<nav class="flex flex-col gap-2 text-gray-600">
-<a href="nost.html" class="hover:text-[#058BED]">Холдинг НОСТ</a>
-<a href="#research" class="hover:text-[#058BED]">Исследования</a>
-<a href="#contact" class="hover:text-[#058BED]">Контакты</a>
+<a href="nost.html">Кейс НОСТ</a>
 </nav>
 </div>
 </div>
 </div>
-<div class="pt-6 border-t border-gray-100 text-xs text-gray-400">© 2021–2026 SANTERO</div>
+<p class="text-xs text-gray-400 mt-12">© 2021–2026 SANTERO</p>
 </footer>
-</div>
-</div>
 
 <div id="menuOverlay" class="menu-overlay fixed inset-0 z-[100] flex flex-col items-center pt-5 px-4">
 <div class="w-full max-w-sm flex items-center justify-between mb-3 px-1">
 <div class="flex items-center gap-2 bg-white/95 rounded-2xl px-3.5 py-2.5 shadow-sm">
-<div class="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center text-white font-bold text-xs">S</div>
+<div class="w-7 h-7 rounded-lg g flex items-center justify-center text-white font-bold text-xs">S</div>
 <span class="font-bold text-sm">SANTERO</span>
 </div>
 <button id="menuClose" class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-gray-500 shadow-sm">
@@ -290,22 +302,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 </div>
 <div class="menu-panel w-full max-w-sm bg-white rounded-[1.75rem] shadow-2xl overflow-hidden py-2">
 <nav class="pt-2 pb-1">
-<a href="index.html" class="block text-center px-6 py-4 text-[17px] font-medium text-primary-600">Главная</a>
-<button type="button" class="menu-group-btn block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600" id="productsToggle">Продукты Santero</button>
+<a href="index.html" class="block text-center px-6 py-4 text-[17px] font-medium text-[#058BED]">Главная</a>
+<button type="button" class="menu-group-btn block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-[#058BED]" id="productsToggle">Продукты Santero</button>
 <div class="menu-sub" id="productsSub">
-<a href="projects.html">Santero Город<span class="sub-desc">Городские сервисы в одном приложении</span></a>
-<a href="#" onclick="event.preventDefault()">Santero Кино<span class="sub-desc">Онлайн-кинотеатр · скоро</span></a>
+<a href="projects.html">Santero Город<span class="sub-desc">Городской суперсервис</span></a>
+<a href="#" onclick="event.preventDefault()">Santero Кино<span class="sub-desc">Скоро</span></a>
 </div>
-<button type="button" class="menu-group-btn block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600" id="casesToggle">Кейсы</button>
+<button type="button" class="menu-group-btn block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-[#058BED]" id="casesToggle">Кейсы</button>
 <div class="menu-sub" id="casesSub">
-<a href="nost.html">Холдинг НОСТ<span class="sub-desc">Сайты и цифровые решения холдинга</span></a>
+<a href="nost.html">Холдинг НОСТ<span class="sub-desc">Цифровые решения холдинга</span></a>
 </div>
-<a href="#research" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600 menu-link">Исследования</a>
-<a href="#about" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600 menu-link">О нас</a>
-<a href="#contact" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-primary-600 menu-link">Контакты</a>
+<a href="#research" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-[#058BED] menu-link">Исследования</a>
+<a href="#contact" class="block text-center px-6 py-4 text-[17px] font-medium text-gray-800 hover:text-[#058BED] menu-link">Контакт</a>
 </nav>
 <div class="px-5 pb-5 pt-3">
-<a href="#contact" class="block w-full text-center px-6 py-3.5 rounded-full gradient-bg text-white font-semibold text-[15px] menu-link">Обсудить проект</a>
+<a href="#contact" class="block w-full text-center px-6 py-3.5 rounded-full g text-white font-semibold text-[15px] menu-link">Связаться</a>
 </div>
 </div>
 </div>
@@ -319,8 +330,8 @@ menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)closeMenu()})
 document.querySelectorAll('.menu-link').forEach(l=>l.addEventListener('click',closeMenu));
 function bindToggle(a,b){const btn=document.getElementById(a),sub=document.getElementById(b);if(!btn||!sub)return;btn.addEventListener('click',()=>{const o=sub.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')})}
 bindToggle('productsToggle','productsSub');bindToggle('casesToggle','casesSub');
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -48px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
