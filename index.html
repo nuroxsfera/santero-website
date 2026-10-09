@@ -49,9 +49,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
 .foot a{color:#5a6b7d;text-decoration:none}
 .foot a:hover{color:#058BED}
-.res-scroll{display:flex;gap:14px;overflow-x:auto;padding:4px 5px 16px;margin:0 -5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.res-scroll{display:flex;gap:14px;overflow-x:auto;padding:4px 0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100vw;margin-left:calc(50% - 50vw);padding-left:max(1.25rem,calc(50vw - 24rem + 1.25rem));padding-right:1.25rem}
+@media (min-width:640px){.res-scroll{padding-left:max(2rem,calc(50vw - 24rem + 2rem));padding-right:2rem}}
 .res-scroll::-webkit-scrollbar{display:none}
-.res-card{flex:0 0 min(72vw,280px);text-decoration:none;color:inherit;display:block}
+.res-card{flex:0 0 min(78vw,300px);text-decoration:none;color:inherit;display:block}
 .res-cover{aspect-ratio:1;border-radius:18px;overflow:hidden;margin-bottom:14px;position:relative}
 .res-card h3{font-size:15px;font-weight:600;line-height:1.35;letter-spacing:-.01em;color:#0a1628;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .res-meta{font-size:12px;color:#8a97a8}
@@ -182,11 +183,13 @@ Santero существует не для того, чтобы закрывать
 </div>
 </section>
 
-<section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="research">
+<section class="py-20 sm:py-28 overflow-x-hidden" id="research">
 <div class="rv">
+<div class="px-5 sm:px-8 max-w-3xl mx-auto">
 <div class="res-head">
 <h2>Последние<br/>исследования</h2>
 <a href="#research" class="res-all">Просмотреть все</a>
+</div>
 </div>
 
 <div class="res-scroll">
