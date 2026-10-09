@@ -40,10 +40,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 .pill{display:inline-block;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .pill-blue{background:rgba(5,139,237,.12);color:#058BED}
 .pill-dark{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75)}
-.research-row{display:grid;gap:0}
-.research-row a{display:block;padding:28px 0;border-top:1px solid #E8EEF5;text-decoration:none;color:inherit;transition:background .2s}
-.research-row a:last-child{border-bottom:1px solid #E8EEF5}
-.research-row a:hover{background:#F5F8FC}
 .form-field{width:100%;padding:16px 0;border:none;border-bottom:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:15px;outline:none;border-radius:0}
 .form-field::placeholder{color:rgba(255,255,255,.4)}
 .form-field:focus{border-bottom-color:rgba(255,255,255,.7)}
@@ -53,6 +49,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
 .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
 .foot a{color:#5a6b7d;text-decoration:none}
 .foot a:hover{color:#058BED}
+.res-scroll{display:flex;gap:14px;overflow-x:auto;padding:4px 5px 16px;margin:0 -5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.res-scroll::-webkit-scrollbar{display:none}
+.res-card{flex:0 0 min(72vw,280px);text-decoration:none;color:inherit;display:block}
+.res-cover{aspect-ratio:1;border-radius:18px;overflow:hidden;margin-bottom:14px;position:relative}
+.res-card h3{font-size:15px;font-weight:600;line-height:1.35;letter-spacing:-.01em;color:#0a1628;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.res-meta{font-size:12px;color:#8a97a8}
+.res-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+.res-head h2{font-size:clamp(1.5rem,5vw,1.85rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin:0;color:#0a1628}
+.res-all{font-size:14px;font-weight:500;color:#5a6b7d;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.res-all:hover{color:#058BED}
 </style>
 </head>
 <body class="overflow-x-hidden">
@@ -177,32 +183,34 @@ Santero существует не для того, чтобы закрывать
 </section>
 
 <section class="px-5 sm:px-8 py-20 sm:py-28 max-w-3xl mx-auto" id="research">
-<div class="rv mb-12">
-<p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#12A9ED] mb-5">Исследования</p>
-<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] mb-5">
-Думаем публично
-</h2>
-<p class="text-[#5a6b7d] text-[15px] leading-relaxed max-w-md">
-Не презентации «для галочки». Наблюдения и выводы, которые влияют на то, что мы строим.
-</p>
+<div class="rv">
+<div class="res-head">
+<h2>Последние<br/>исследования</h2>
+<a href="#research" class="res-all">Просмотреть все</a>
 </div>
 
-<div class="research-row rv">
-<a href="#research">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">Мобильность · 2025</span>
-<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Как люди реально перемещаются по городу</h3>
-<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Пересадки, «слепые зоны» приложений и привычки, которые не видны в аналитике сторов.</p>
+<div class="res-scroll">
+<a href="#research" class="res-card">
+<div class="res-cover" style="background:linear-gradient(145deg,#e8f4fd 0%,#b8d9f5 35%,#6bbcf0 70%,#058BED 100%)"></div>
+<h3>Как люди реально перемещаются по городу</h3>
+<p class="res-meta">Исследования · 2025</p>
 </a>
-<a href="#research">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">Продукт · 2025</span>
-<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Граница суперсервиса</h3>
-<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Где «всё в одном» усиливает жизнь — и где превращается в шум.</p>
+<a href="#research" class="res-card">
+<div class="res-cover" style="background:linear-gradient(160deg,#042E75 0%,#058BED 45%,#12A9ED 100%)"></div>
+<h3>Граница суперсервиса: когда «всё в одном» работает</h3>
+<p class="res-meta">Исследования · 2025</p>
 </a>
-<a href="#research">
-<span class="text-[11px] font-semibold tracking-wide uppercase text-[#12A9ED]">AI · 2026</span>
-<h3 class="text-lg sm:text-xl font-bold mt-2 mb-2 tracking-tight">Когда город можно просто спросить</h3>
-<p class="text-sm text-[#5a6b7d] leading-relaxed max-w-lg">Сценарии, в которых помощник заменяет поиск по разделам — и когда ещё нет.</p>
+<a href="#research" class="res-card">
+<div class="res-cover" style="background:linear-gradient(135deg,#12A9ED 0%,#7ec8f5 40%,#e8f4fd 100%)"></div>
+<h3>Когда город можно просто спросить</h3>
+<p class="res-meta">Исследования · 2026</p>
 </a>
+<a href="#research" class="res-card">
+<div class="res-cover" style="background:linear-gradient(150deg,#0a1628 0%,#042E75 50%,#058BED 100%)"></div>
+<h3>Цифровое пространство вокруг человека</h3>
+<p class="res-meta">Исследования · 2026</p>
+</a>
+</div>
 </div>
 </section>
 
